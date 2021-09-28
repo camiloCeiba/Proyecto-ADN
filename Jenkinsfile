@@ -89,7 +89,7 @@ pipeline {
         }
         failure {
             mail(
-                to: 'anderson.perez@ceiba.com.co',
+                to: 'camilo.sanchez@ceiba.com.co',
                 subject: "Failed Pipeline:${currentBuild.fullDisplayName}",
                 body: "Something is wrong with ${env.BUILD_URL}"
             )
