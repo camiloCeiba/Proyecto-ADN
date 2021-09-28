@@ -1,0 +1,103 @@
+<div class="container text-center">
+  <h1>Registrar Libro</h1>
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="libroForm" (ngSubmit)="crear(libroForm.valid)">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="row justify-content-center">
+              <div class="col-sm-2">
+                <label>Nombre Libro:</label>
+              </div>
+              <div class="col-sm-4">
+                <input validar type="text" id="nombreLibro" name="nombreLibro" placeholder="Nombre Libro"
+                  class="form-control" formControlName="nombre_libro">
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm-2">
+                <label>Editorial:</label>
+              </div>
+              <div class="col-sm-4">
+                <input validar type="text" id="editorial" name="editorial" placeholder="Editorial" class="form-control"
+                  formControlName="editorial">
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm-2">
+                <label>URL Image:</label>
+              </div>
+              <div class="col-sm-4">
+                <input validar type="text" id="URL" name="URL" placeholder="URL" class="form-control"
+                  formControlName="URL">
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm-2">
+                <label>estado:</label>
+              </div>
+              <div class="col-sm-4">
+                <input validar type="text" id="estado" name="estado" placeholder="Estado" class="form-control"
+                  formControlName="estado">
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm-2">
+                <label>Valor día:</label>
+              </div>
+              <div class="col-sm-4">
+                <input validar type="text" id="valorDia" name="valorDia" placeholder="Valor día" class="form-control"
+                  formControlName="valorDia">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="row justify-content-center">
+              <div class="col-sm-2">
+                <label>resumen:</label>
+              </div>
+              <div class="col-sm-4">
+                <textarea validar type="text" id="resumen" name="resumen" placeholder="Resumen" class="form-control"
+                  formControlName="resumen" rows="4"></textarea>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm-2">
+                <label>categoría:</label>
+              </div>
+              <div class="col-sm-4">
+                <input validar type="text" id="categoria" name="categoria" placeholder="Categoría" class="form-control"
+                  formControlName="categoria">
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm-2">
+                <label>Publicación:</label>
+              </div>
+              <div class="col-sm-4">
+                <input validar type="date" id="fechaPublicacion" name="fechaPublicacion" placeholder="Fecha publicación"
+                  class="form-control" formControlName="fechaPublicacion">
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm-2">
+                <label>código:</label>
+              </div>
+              <div class="col-sm-4">
+                <input validar type="text" id="codigoLibro" name="codigoLibro" placeholder="código" class="form-control"
+                  formControlName="codigoLibro">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <button type="submit"  class="btn btn-primary">
+              <span>Crear</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

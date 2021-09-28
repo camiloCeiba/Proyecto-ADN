@@ -1,0 +1,141 @@
+{
+    "Libros": [
+        {
+            "nombre_libro": "Arsène Lupin - Caballero y Ladrón",
+            "editorial": "Blanco&Negro",
+            "URL":"https://images.cdn2.buscalibre.com/fit-in/360x360/96/b9/96b9d711019a6807e4a89495b7089b97.jpg",
+            "resumen": "Arsène Lupin es un caballero ladrón ficticio y maestro del disfraz creado en 1905 por el escritor francés Maurice Leblanc. Originalmente se llamaba Arsène Lopin, hasta que un político local del mismo nombre_libro_libro protestó. El personaje apareció por primera vez en una serie de historias cortas serializadas en la revista Je sais tout.",
+            "categoria": "Acción",
+            "fechaPublicacion": 1905,
+            "estado": "Disponible",
+            "valorDia": 500,
+            "codigoLibro": 245456
+        },
+        {
+            "nombre_libro": "Arsène Lupin - La Aguja Hueca",
+            "editorial": "Blanco&Negro",
+            "URL":"https://http2.mlstatic.com/D_NQ_NP_2X_744231-MCO46623946556_072021-F.webp",
+            "resumen": "En ésta entrega de la serie del famoso ladrón de guante blanco, empieza con una escena nocturna muy inquietante y ubicación desde el primer momento al lector en un estado de gran tensión, lo que supone una distracción para que el lector pueda aplicar su ingenio a descubrir el verdadero misterio que se plantea, el enigma que llegará a César ocupar la Galia y posteriormente a los normandos iniciarán en Francia su despliegue por Europa. Se trata de una gran mole calcárea frente a la costa que oculta un secreto y, según cuenta la leyenda, un inmenso tesoro.",
+            "categoria": "Acción",
+            "fechaPublicacion": 1909,
+            "estado": "Disponible",
+            "valorDia": 700,
+            "codigoLibro": 255742
+        },
+        {
+            "nombre_libro": "Arsène Lupin - Sherlock Sholmes",
+            "editorial": "Blanco&Negro",
+            "URL":"https://images.cdn2.buscalibre.com/fit-in/360x360/35/94/359412e108b96e1442ad90cb0a28df4d.jpg",
+            "resumen": "Lupin es falsamente acusado de lo que parece un asesinato perfecto, que va más allá de la capacidad de la policía. La muerte de Kesselbach pone al descubierto una intriga y un misterioso paquete de cartas oculto en un castillo. El único modo que tendrá de demostrar su inocencia y desentrañar el misterio será poniéndose él mismo al frente de la investigación pero con un costo muy alto: tres personas mueren por su causa.",
+            "categoria": "Acción",
+            "fechaPublicacion": 1910,
+            "estado": "Disponible",
+            "valorDia": 800,
+            "codigoLibro": 265782
+        },
+        {
+            "nombre_libro": "la Rebelión de las ratas",
+            "editorial": "Panamericana",
+            "URL":"https://storage.googleapis.com/catalogo-libros/extralarge/c8654639-3a01-85e2-5bf9-5fc94393c20c_imagen.PNG",
+            "resumen": "Esta novela, escrita con un lirismo que sorprende, desnuda descarnadamente el drama de un campesino dedicado, por la fuerza de la fatalidad, a trabajar en las oscuras y fétidas galerías de una mina de carbón para no morir de hambre. Los sombríos socavones simbolizan la vida misma: laberinto indescifrable, donde la esperanza ha cambiado su color por el de la fría y negra roca milenaria.",
+            "categoria": "Novela",
+            "fechaPublicacion": 1962,
+            "estado": "Disponible",
+            "valorDia": 600,
+            "codigoLibro": 235434
+        },
+        {
+            "nombre_libro": "Dan Brown Angeles y Demonios",
+            "editorial": "Editorial Planeta",
+            "URL":"https://images-na.ssl-images-amazon.com/images/I/71V-gfXNz1L.jpg",
+            "resumen": "Robert Langdon, experto en simbología, es convocado a un centro de investigación suizo para analizar un misterioso signo marcado a fuego en el pecho de un físico asesinado. Allí, Langdon descubre el resurgimiento de una antigua hermandad secreta: los illuminati, que han emergido de las sombras para llevar a cabo la fase final de una legendaria venganza contra su enemigo más odiado: la Iglesia católica.",
+            "categoria": "Novela",
+            "fechaPublicacion": 2000,
+            "estado": "Disponible",
+            "valorDia": 500,
+            "codigoLibro": 365464
+        },
+        {
+            "nombre_libro": "Dan Brown El Código Da Vinci",
+            "editorial": "Editorial Planeta",
+            "URL":"https://images-na.ssl-images-amazon.com/images/I/51WmNPpn5sL.jpg",
+            "resumen": "Robert Langdon recibe una llamada en mitad de la noche: el conservador del museo del Louvre ha sido asesinado en extrañas circunstancias y junto a su cadáver ha aparecido un desconcertante mensaje cifrado. Al profundizar en la investigación, Langdon, experto en simbología, descubre que las pistas conducen a las obras de Leonardo Da Vinci… y que están a la vista de todos, ocultas por el ingenio del pintor.",
+            "categoria": "Misterio",
+            "fechaPublicacion": 2003,
+            "estado": "Disponible",
+            "valorDia": 500,
+            "codigoLibro": 365814
+        },
+        {
+            "nombre_libro": "Dan Brown El Símbolo Perdido",
+            "editorial": "Editorial Planeta",
+            "URL":"https://images.cdn1.buscalibre.com/fit-in/360x360/a9/2d/a92d3bb5fa96f901298070df49cf8216.jpg",
+            "resumen": "Washington. El experto en simbología Robert Langdon es convocado inesperadamente por Peter Solomon, masón, filántropo y su antiguo mentor, para dar una conferencia en el Capitolio. Pero el secuestro de Peter y el hallazgo de una mano tatuada con cinco enigmáticos símbolos cambian drásticamente el curso de los acontecimientos. Atrapado entre las exigencias de una mente perturbada y la investigación oficial, Langdon se ve inmerso en un mundo clandestino de secretos masónicos, historia oculta y escenarios nunca antes vistos, que parecen arrastrarlo hacia una sencilla pero inconcebible verdad.",
+            "categoria": "Misterio",
+            "fechaPublicacion": 2009,
+            "estado": "Ocupado",
+            "valorDia": 600,
+            "codigoLibro": 365364
+        },
+        {
+            "nombre_libro": "Dan Brown Inferno",
+            "editorial": "Editorial Planeta",
+            "URL":"http://2.bp.blogspot.com/-09tt7AsXSS0/UZwBAYM1vpI/AAAAAAAAFlo/gbI7YlxsDMw/s1600/Inferno+(espa%C3%B1ol)+01.jpg",
+            "resumen": "El profesor de simbología Robert Langdon se despierta en un hospital en mitad de la noche, desorientado y con una herida en la cabeza. No recuerda nada de las últimas treinta y seis horas. Ni cómo ha llegado hasta allí, ni el origen del macabro objeto que los médicos descubren entre sus pertenencias. El mundo de Langdon pronto se convierte en un caos y se ve obligado a huir por las calles de Florencia junto a una inteligente joven, Sienna Brooks, cuyas hábiles maniobras le salvan la vida. Langdon no tarda en darse cuenta de que se encuentra en posesión de una serie de inquietantes códigos creados por un brillante científico; un genio cuya obsesión con el fin del mundo sólo es equiparable a la pasión que siente por una de las obras maestras más influyentes jamás escritas: Inferno, el oscuro poema épico de Dante Alighieri.",
+            "categoria": "Misterio",
+            "fechaPublicacion": 2013,
+            "estado": "Ocupado",
+            "valorDia": 700,
+            "codigoLibro": 365451
+        }
+    ],
+    "prestamo": [
+        {
+            "nombre_persona": "Camilo Andres Sanchez Rodriguez",
+            "cedula": 1023009710,
+            "fecha_alquiler": "2021/24/09",
+            "fecha_devolucion": "2021/30/09",
+            "Valor_total":"9100",
+            "libros":[{"codigoLibro":365451},{"codigoLibro":365364}],
+            "estado":"pendiente"
+        },
+        {
+            "nombre_persona": "Laura Fernanda Díaz Rodríguez",
+            "cecula": 1024009710,
+            "fecha_alquiler": "2021/24/09",
+            "fecha_devolucion": "2021/30/10",
+            "Valor_total":"18500",
+            "libros":[{"codigoLibro":245456}],
+            "estado":"pendiente"
+        }
+    ],
+    "login_user": [
+        {
+            "nombre_persona": "Camilo Andres Sanchez Rodriguez",
+            "cedula": 1023009710,
+            "rol": "user",
+            "user":"Camilo",
+            "clave":"camilo1023",
+            "token":"ew0KICAgICAgICAgICAgIm5vbWJyZV9wZXJzb25hIjogIkNhbWlsbyBBbmRyZXMgU2FuY2hleiBSb2RyaWd1ZXoiLA0KICAgICAgICAgICAgImNlZHVsYSI6IDEwMjMwMDk3MTAsDQogICAgICAgICAgICAicm9sIjogInVzZXIiLA0KICAgICAgICAgICAgInVzZXIiOiJDYW1pbG8iLA0KfQ=="
+        },
+        {
+            "nombre_persona": "Laura Fernanda Díaz Rodríguez",
+            "cedula": 1024009710,
+            "rol": "user",
+            "user":"Laura",
+            "clave":"Laura1024",
+            "token":"ew0KICAgICAgICAgICAgIm5vbWJyZV9wZXJzb25hIjogIkxhdXJhIEZlcm5hbmRhIETDrWF6IFJvZHLDrWd1ZXoiLA0KICAgICAgICAgICAgImNlZHVsYSI6IDEwMjQwMDk3MTAsDQogICAgICAgICAgICAicm9sIjogInVzZXIiLA0KICAgICAgICAgICAgInVzZXIiOiJMYXVyYSINCiB9"
+        }
+    ]
+    ,
+    "login_admin": [
+        {
+            "nombre_persona": "Daniel Felipe Cardenas Sanchez",
+            "cedula": 1025009710,
+            "rol": "Admin",
+            "user":"Daniel",
+            "clave":"Daniel1025",
+            "token":"ICAgICAgICB7DQogICAgICAgICAgICAibm9tYnJlX3BlcnNvbmEiOiAiRGFuaWVsIEZlbGlwZSBDYXJkZW5hcyBTYW5jaGV6IiwNCiAgICAgICAgICAgICJjZWR1bGEiOiAxMDI1MDA5NzEwLA0KICAgICAgICAgICAgInJvbCI6ICJBZG1pbiIsDQogICAgICAgICAgICAidXNlciI6IkRhbmllbCINCiAgICAgICAgfQ=="
+        }
+    ]
+}

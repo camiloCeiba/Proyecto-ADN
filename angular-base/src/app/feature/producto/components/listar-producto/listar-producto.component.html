@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div  *ngFor="let item of listaProductos | async">
+      <div class="card">
+        <div class="card-body">
+          <span>{{item.codigoLibro}}</span> {{item.nombre_libro}}
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>
