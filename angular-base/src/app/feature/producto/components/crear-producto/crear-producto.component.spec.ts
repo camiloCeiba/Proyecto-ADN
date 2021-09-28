@@ -33,7 +33,7 @@ describe('CrearProductoComponent', () => {
     fixture = TestBed.createComponent(CrearProductoComponent);
     component = fixture.componentInstance;
     productoService = TestBed.inject(ProductoService);
-    spyOn(productoService, 'guardar').and.returnValue(
+    spyOn(productoService, 'crear').and.returnValue(
       of(true)
     );
     fixture.detectChanges();
@@ -44,16 +44,16 @@ describe('CrearProductoComponent', () => {
   });
 
   it('formulario es invalido cuando esta vacio', () => {
-    expect(component.productoForm.valid).toBeFalsy();
+    expect(component.libroForm.valid).toBeFalsy();
   });
 
   it('Registrando producto', () => {
-    expect(component.productoForm.valid).toBeFalsy();
-    component.productoForm.controls.id.setValue('001');
-    component.productoForm.controls.descripcion.setValue('Producto test');
-    expect(component.productoForm.valid).toBeTruthy();
+    expect(component.libroForm.valid).toBeFalsy();
+    component.libroForm.controls.id.setValue('001');
+    component.libroForm.controls.descripcion.setValue('Producto test');
+    expect(component.libroForm.valid).toBeTruthy();
 
-    component.cerar();
+    component.crear(true);
 
     // Aca validamos el resultado esperado al enviar la petición
     // TODO adicionar expect
