@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { featureRoutingModule } from './feature-routing.module';
 
@@ -9,6 +9,7 @@ import { featureRoutingModule } from './feature-routing.module';
   imports: [
     featureRoutingModule,
     CommonModule,
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class FeatureModule { }

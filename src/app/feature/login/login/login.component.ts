@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public async login(validacion){
+  async login(validacion){
     let token:login;
     if(validacion){
       let body={

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import { ProductoRoutingModule } from './producto-routing.module';
 import { BorrarProductoComponent } from './components/borrar-producto/borrar-producto.component';
@@ -20,6 +20,7 @@ import { ProductoService } from './shared/service/producto.service';
     ProductoRoutingModule,
     SharedModule
   ],
-  providers: [ProductoService]
+  providers: [ProductoService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ProductoModule { }

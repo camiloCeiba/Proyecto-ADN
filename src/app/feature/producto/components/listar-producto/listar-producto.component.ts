@@ -16,7 +16,7 @@ export class ListarProductoComponent implements OnInit {
 
   ngOnInit() {
     this.listaProductos = this.productoService.consultar();
-    console.log(this.listaProductos);
+    // console.log(this.listaProductos);
   }
 
   listarLibros(){

@@ -11,6 +11,7 @@ export class ProductoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // console.log(document.getElementById('linkCrearLibro')?.tagName);
   }
 
 }

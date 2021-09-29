@@ -12,10 +12,10 @@
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
                             <div>
-                                <input type="text" formControlName="loginUser"
+                                <input id="inputUsername" type="text" formControlName="loginUser"
                                     [ngStyle]="loginUserValidate?{'border-color':'red'}:{'border-color':'green'}"
                                     class="form-control" placeholder="username">
-                                <small *ngIf="loginUserValidate" class="text-alert">{{msjErrorUser}}</small>
+                                <small id="inputUsernameError" *ngIf="loginUserValidate" class="text-alert">{{msjErrorUser}}</small>
                             </div>
                         </div>
                         <div class="input-group form-group d-flex">
@@ -23,15 +23,15 @@
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             <div>
-                                <input type="password" class="form-control" placeholder="password"
+                                <input id="inputPassword" type="password" class="form-control" placeholder="password"
                                     formControlName="loginPassword"
                                     [ngStyle]="loginPasswordValidate?{'border-color':'red'}:{'border-color':'green'}"
                                     class="form-control">
-                                <small *ngIf="loginPasswordValidate" class="text-alert">{{msjErrorPass}}</small>
+                                <small id="inputPasswordError" *ngIf="loginPasswordValidate" class="text-alert">{{msjErrorPass}}</small>
                             </div>
                         </div>
                         <div class="form-group mt-4">
-                            <input type="submit" value="Login" class="btn float-right login_btn">
+                            <input id="btnLogin" type="submit" value="Login" class="btn float-right login_btn">
                         </div>
                     </form>
                 </div>

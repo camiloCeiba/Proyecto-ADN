@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -17,21 +18,18 @@ import { Component, OnInit } from '@angular/core';
     font-weight: normal;
     letter-spacing: 0.1px;
     line-height: 48px;
-  }
-
-  .more {
-    background: url("/assets/svg/more.svg");
-    float: right;
-    height: 24px;
-    margin-top: 12px;
-    width: 24px;
   }`]
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,) { }
 
   ngOnInit() {
+  }
+
+  cerrarSesion(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
 }

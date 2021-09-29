@@ -10,7 +10,7 @@ import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 describe('CrearProductoComponent', () => {
-  // let component: CrearProductoComponent;
+  let component: CrearProductoComponent;
   let fixture: ComponentFixture<CrearProductoComponent>;
   let productoService: ProductoService;
 
@@ -31,7 +31,7 @@ describe('CrearProductoComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CrearProductoComponent);
-    // component = fixture.componentInstance;
+    component = fixture.componentInstance;
     productoService = TestBed.inject(ProductoService);
     spyOn(productoService, 'crear').and.returnValue(
       of(true)
@@ -39,13 +39,13 @@ describe('CrearProductoComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
-  // it('formulario es invalido cuando esta vacio', () => {
-  //   expect(component.libroForm.valid).toBeFalsy();
-  // });
+  it('formulario es invalido cuando esta vacio', () => {
+    expect(component.libroForm.valid).toBeFalsy();
+  });
 
   // it('Registrando producto', () => {
   //   expect(component.libroForm.valid).toBeFalsy();
