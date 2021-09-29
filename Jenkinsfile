@@ -64,18 +64,18 @@ pipeline {
             }
         }
 
+        stage('Build') {
+            steps {
+                sh 'ng build '
+            }
+        }
+        
         stage('Static Code Analysis') {
             steps {
                 echo '------------>Analisis de código estático<------------'
                 withSonarQubeEnv('Sonar') {
                     sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"
                 }
-            }
-        }
-
-        stage('Build') {
-            steps {
-                sh 'ng build --prod'
             }
         }
     }

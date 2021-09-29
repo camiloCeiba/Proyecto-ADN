@@ -3,7 +3,21 @@
     <div  *ngFor="let item of listaProductos | async">
       <div class="card">
         <div class="card-body">
-          <span>{{item.codigoLibro}}</span> {{item.nombre_libro}}
+          <div class="row">
+            <div class="col-lg-4 text-center">
+              <strong>{{item.nombre_libro}}</strong><br>
+              <img [src]="item.URL" class="img" alt="item.nombre_libro">
+            </div>
+            <div class="col-lg-8 ">
+              <strong>Resumen: </strong><br>
+              <span>{{item.resumen}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <span>{{item.nombre_libro}}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>    
