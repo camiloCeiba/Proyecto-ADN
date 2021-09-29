@@ -8,6 +8,7 @@
     "test": "ng test --browsers=ChromeHeadless --watch=false --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "jsonserve": "json-server --watch src/assets/data/db.json",
     "sonar": "sonar-scanner"
   },
   "private": true,
