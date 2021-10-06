@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { TestBed } from '@angular/core/testing';
+import { fakeAsync, TestBed } from '@angular/core/testing';
 import { Libro } from '@core/modelo/producto';
 import { HttpService } from '@core/services/http.service';
 import { environment } from 'src/environments/environment';
@@ -35,12 +35,13 @@ describe('Service: Services', () => {
     service = TestBed.inject(GeneralService);
   });
 
-  it('deberia traer el libro con id 1', () => {
-    service.consultarId(1).then(productos => {
+  it('deberia traer el libro con id 1', fakeAsync(() => {
+    const id = 1;
+    service.consultarId(id).then(productos => {
       expect(productos).toEqual(dummyLibros);
     });
     const req = httpMock.expectOne(apiLibros);
     expect(req.request.method).toBe('GET');
     req.flush(dummyLibros);
-  });
+  }));
 });

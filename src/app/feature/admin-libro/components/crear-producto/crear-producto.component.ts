@@ -22,7 +22,6 @@ export class CrearProductoComponent implements OnInit {
     if (validacion){
       this.libroForm.get('id').setValue(this.getRandomId(99));
       this.producto = await this.libroService.crear(this.libroForm.value);
-      console.log(this.producto);
       this.redirigir();
     }else{
       this.libroForm.markAllAsTouched();

@@ -79,7 +79,6 @@ export class ListAlquilerComponent implements OnInit {
 
     this.totalPrestamos.forEach(async (element) => {
         this.totalLibros.push(Object.assign(await this.listLibros(element.codigoLibro), element));
-        console.log(this.totalLibros[0]);
     });
   }
 }
