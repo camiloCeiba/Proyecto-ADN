@@ -35,6 +35,12 @@ describe('Service: Services', () => {
     service = TestBed.inject(GeneralService);
   });
 
+  it('should be created', () => {
+    const productService: GeneralService = TestBed.inject(GeneralService);
+    expect(productService).toBeTruthy();
+  });
+
+
   it('deberia traer el libro con id 1', fakeAsync(() => {
     const id = 1;
     service.consultarId(id).then(productos => {
