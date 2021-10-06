@@ -11,7 +11,7 @@ export class AlquilerService {
 
     public crear(libro: Prestamo): Promise<boolean> {
         return new Promise((resolve) => {
-            this.http.doPost<Prestamo, boolean>(`${environment.API}/Prestamo`, libro, this.http.optsName('Prestamo')).subscribe(data => {
+            this.http.doPost<Prestamo, boolean>(`${environment.API}/prestamo`, libro, this.http.optsName('Prestamo')).subscribe(data => {
                 resolve(data);
             });
         });
