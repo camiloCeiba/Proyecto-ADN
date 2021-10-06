@@ -95,6 +95,54 @@
       "estado": "Ocupado",
       "valorDia": 700,
       "codigoLibro": 365451
+    },
+    {
+      "id": 55,
+      "nombreLibro": "Libro test",
+      "editorial": "editorial Test",
+      "URL": "URL test",
+      "resumen": "resumen test",
+      "categoria": "categoria test",
+      "fechaPublicacion": 1905,
+      "estado": "Disponible",
+      "valorDia": 700,
+      "codigoLibro": 24587
+    },
+    {
+      "id": 30,
+      "nombreLibro": "PruebaLibro",
+      "editorial": "aasd",
+      "URL": "asdsdfg",
+      "resumen": "asd",
+      "categoria": "asdasd",
+      "fechaPublicacion": "2021-10-07",
+      "estado": "asdddas",
+      "valorDia": "522",
+      "codigoLibro": "12454"
+    },
+    {
+      "id": 25,
+      "nombreLibro": "Libro test",
+      "editorial": "editorial Test",
+      "URL": "URL test",
+      "resumen": "resumen test",
+      "categoria": "categoria test",
+      "fechaPublicacion": 1905,
+      "estado": "Disponible",
+      "valorDia": 700,
+      "codigoLibro": 24587
+    },
+    {
+      "id": 49,
+      "nombreLibro": "Libro test",
+      "editorial": "editorial Test",
+      "URL": "URL test",
+      "resumen": "resumen test",
+      "categoria": "categoria test",
+      "fechaPublicacion": 1905,
+      "estado": "Disponible",
+      "valorDia": 700,
+      "codigoLibro": 24587
     }
   ],
   "prestamo": [
