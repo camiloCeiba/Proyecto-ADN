@@ -1,24 +1,18 @@
 import { Injectable } from '@angular/core';
-import { login } from '@core/modelo/login-item';
+import { HttpService } from '@core/services/http.service';
 import { environment } from 'src/environments/environment';
+import { LoginSesion } from '../../model/login';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LoginService {
 
-constructor() { }
+  constructor(protected http: HttpService) { }
 
-public login(body): Promise<login>{
-  return new Promise (async (resolve, reject) => {
-    let res= await fetch(environment.API+"/login_admin");
-    let posts = await res.json();
-    if(body.username==posts[0].user && body.password==posts[0].clave){
-      resolve(posts[0]);
-    }else{
-      reject('Usuario o contraseña');
-    }
-  });
-}
-
+  public login(): Promise<LoginSesion> {
+    return new Promise((resolve) => {
+      this.http.doGet<LoginSesion>(`${environment.API}/login_admin`, this.http.optsName('login')).subscribe(data => {
+        resolve(data);
+      });
+    });
+  }
 }

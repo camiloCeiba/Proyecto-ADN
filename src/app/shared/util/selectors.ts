@@ -1,8 +1,9 @@
 export const SELECTORS = {
     NAV_BAR: {
         linkCrearLibro: (): HTMLLinkElement => document.querySelector('#linkCrearLibro'),
-        linkBorrarLibro: (): HTMLLinkElement => document.querySelector('#linkBorrarLibro'),
+        linkPrestamo: (): HTMLLinkElement => document.querySelector('#linkPrestamo'),
         linkListarLibro: (): HTMLLinkElement => document.querySelector('#linkListarLibro'),
+        linkListaAlquilar: (): HTMLLinkElement => document.querySelector('#linkListaAlquilar'),
     },
     LOGIN: {
         inputUsername: (): HTMLInputElement => document.querySelector('#inputUsername'),
@@ -11,7 +12,7 @@ export const SELECTORS = {
         inputPasswordError: (): HTMLDivElement => document.querySelector('#inputPasswordError'),
         btnLogin: (): HTMLButtonElement => document.querySelector('#btnLogin'),
     },
-    TOOLBAR:{
+    TOOLBAR: {
         btnCerrarSesion: (): HTMLButtonElement => document.querySelector('#btnCerrarSesion'),
     }
-}
+};

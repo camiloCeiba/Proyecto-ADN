@@ -1,0 +1,41 @@
+<div class="card-body">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="row text-center">
+        <div class="col-lg-12">
+          <strong>{{producto!==undefined?producto.nombreLibro:''}}</strong>
+        </div>
+        <div class="col-lg-12">
+          <img [src]="producto!==undefined?producto.URL:''" class="img" alt="item.nombreLibro">
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8 ">
+      <div class="row">
+        <div class="col-lg-12">
+          <strong>Resumen: </strong>
+        </div>
+        <div class="col-lg-12">
+          <span>{{producto.resumen}}</span>
+        </div>
+        <button type="button" class="btn btn-info" (click)="routerAlquiler(producto)">Alquilar</button>
+      </div>
+    </div>
+  </div>
+  <div class="card mt-2">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-6 d-grid">
+          <span><strong>Editorial:</strong> {{producto.editorial}}</span>
+          <span><strong>Categoria:</strong> {{producto.categoria}}</span>
+          <span><strong>Fecha publicacion:</strong> {{producto.fechaPublicacion}}</span>
+        </div>
+        <div class="col-lg-6 d-grid">
+          <span><strong>Estado:</strong> {{producto.estado}}</span>
+          <span><strong>Valor x día:</strong> {{producto.valorDia}}</span>
+          <span><strong>Codigo libro:</strong> {{producto.codigoLibro}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <div class="image text-center">
+      <h1>Formulario para alquilar</h1>
+      <h1>{{producto!==undefined?producto.nombreLibro:''}}</h1>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="alquilerForm" (ngSubmit)="crear(alquilerForm.valid)">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row justify-content-center">
+                <div class="col-sm-2">
+                  <label>Codigo Libro:</label>
+                </div>
+                <div class="col-sm-4">
+                  <input validar type="text" id="codigoLibro" name="codigoLibro" placeholder="Nombre Libro"
+                    class="form-control" formControlName="codigoLibro">
+                </div>
+              </div>
+              <div class="row justify-content-center mt-3">
+                <div class="col-sm-2">
+                  <label>Fecha inicial:</label>
+                </div>
+                <div class="col-sm-4">
+                  <input validar type="date" from id="fechaInicial" name="fechaInicial" placeholder="Fecha inicial"
+                    class="form-control" formControlName="fechaAlquiler">
+                </div>
+              </div>
+              <div class="row justify-content-center mt-3">
+                <div class="col-sm-2">
+                  <label>Fecha final:</label>
+                </div>
+                <div class="col-sm-4">
+                  <input validar type="date" id="fechaFinal" name="fechaFinal" placeholder="Fecha final"
+                    class="form-control" formControlName="fechaDevolucion">
+                </div>
+              </div>
+              <div class="row justify-content-center mt-3">
+                <div class="col-sm-2">
+                  <label>Cedula:</label>
+                </div>
+                <div class="col-sm-4">
+                  <input validar type="text" id="cedula" name="cedula" placeholder="Cedula" class="form-control"
+                    formControlName="cedula">
+                </div>
+              </div>
+              <div class="row justify-content-center mt-3">
+                <div class="col-sm-2">
+                  <label>Valor total:</label>
+                </div>
+                <div class="col-sm-4">
+                  <input validar type="text" id="valorTotal" name="valorTotal" placeholder="Valor Total" class="form-control"
+                    formControlName="valorTotal">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 text-center mt-3">
+              <button type="submit" class="btn btn-primary">
+                <span>Alquilar</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,20 +1,17 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-
 import { ProductoRoutingModule } from './producto-routing.module';
-import { BorrarProductoComponent } from './components/borrar-producto/borrar-producto.component';
 import { ListarProductoComponent } from './components/listar-producto/listar-producto.component';
-import { CrearProductoComponent } from './components/crear-producto/crear-producto.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { SharedModule } from '@shared/shared.module';
 import { ProductoService } from './shared/service/producto.service';
+import { VerProductoComponent } from './components/ver-producto/ver-producto.component';
 
 
 @NgModule({
   declarations: [
-    CrearProductoComponent,
     ListarProductoComponent,
-    BorrarProductoComponent,
-    ProductoComponent
+    ProductoComponent,
+    VerProductoComponent
   ],
   imports: [
     ProductoRoutingModule,

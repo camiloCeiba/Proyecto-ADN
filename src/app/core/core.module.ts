@@ -9,7 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpService } from './services/http.service';
 import { ManejadorError } from './interceptor/manejador-error';
 import { RouterModule } from '@angular/router';
-import { LoginGuard } from './guard/login/login.guard';
+import { LoginGuard } from '@core/guard/sesion/login.guard';
 
 @NgModule({
   declarations: [ToolbarComponent, NavbarComponent],

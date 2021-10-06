@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class SecurityGuard implements CanActivate {
 
-  constructor(private generalService:GeneralService, private router: Router){
+  constructor(private generalService: GeneralService, private router: Router){
   }
 
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(this.generalService.getToken()){
+    if (this.generalService.getToken()){
       return true;
     } else {
       this.router.navigate(['/login']);

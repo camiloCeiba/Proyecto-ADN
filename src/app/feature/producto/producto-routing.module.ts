@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CrearProductoComponent } from './components/crear-producto/crear-producto.component';
 import { ListarProductoComponent } from './components/listar-producto/listar-producto.component';
-import { BorrarProductoComponent } from './components/borrar-producto/borrar-producto.component';
 import { ProductoComponent } from './components/producto/producto.component';
+import { VerProductoComponent } from './components/ver-producto/ver-producto.component';
 
 
 const routes: Routes = [
@@ -12,16 +11,12 @@ const routes: Routes = [
     component: ProductoComponent,
     children: [
       {
-        path: 'crear',
-        component: CrearProductoComponent
-      },
-      {
         path: 'listar',
         component: ListarProductoComponent
       },
       {
-        path: 'borrar',
-        component: BorrarProductoComponent
+        path: 'detalles/:id',
+        component: VerProductoComponent
       }
     ]
   }
