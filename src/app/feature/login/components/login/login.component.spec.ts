@@ -8,6 +8,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpService } from '@core/services/http.service';
 import { LoginMockService } from '@shared/data/login-mock.service';
 import { LoginService } from '../../shared/services/login/login.service';
+import { GeneralService } from '@shared/services/general.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -26,7 +27,7 @@ describe('LoginComponent', () => {
         RouterTestingModule,
         HttpClientTestingModule
       ],
-      providers: [LoginService, HttpService, LoginMockService]
+      providers: [LoginService, HttpService, LoginMockService, GeneralService]
     }).compileComponents();
   });
 
@@ -74,15 +75,15 @@ describe('LoginComponent', () => {
   //   const password = 'Daniel1025';
 
   //   const spyLogin = spyOn(loginService, 'login').and.callThrough();
-    // const { token } = new LoginMockService().loginSesion();
+  //   const { token } = new LoginMockService().loginSesion();
 
-    // eventInput(inputUsername, username);
-    // eventInput(inputPassword, password);
-    // btnLogin.click();
-    // fixture.detectChanges();
-    // tick(2000);
-    // expect(spyLogin).toHaveBeenCalled();
-    // expect(localStorage.getItem('token')).toEqual(token);
-    // expect(redirectPage).toHaveBeenCalled();
+  //   eventInput(inputUsername, username);
+  //   eventInput(inputPassword, password);
+  //   btnLogin.click();
+  //   fixture.detectChanges();
+  //   tick(2000);
+  //   expect(spyLogin).toHaveBeenCalled();
+  //   expect(localStorage.getItem('token')).toEqual(token);
+  //   expect(redirectPage).toHaveBeenCalled();
   // }));
 });

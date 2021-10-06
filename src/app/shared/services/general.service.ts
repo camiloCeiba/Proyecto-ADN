@@ -4,9 +4,7 @@ import { HttpService } from '@core/services/http.service';
 import { Prestamo } from '@core/modelo/prestamo';
 import { environment } from 'src/environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class GeneralService {
 
   constructor(protected http: HttpService) { }

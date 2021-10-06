@@ -8,6 +8,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ProductoService } from '../../shared/service/producto.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { Libro } from '@core/modelo/producto';
+import { GeneralService } from '@shared/services/general.service';
 
 describe('ListarProductoComponent', () => {
   let component: ListarProductoComponent;
@@ -46,7 +47,7 @@ describe('ListarProductoComponent', () => {
         HttpClientModule,
         RouterTestingModule
       ],
-      providers: [ProductoService, HttpService]
+      providers: [ProductoService, HttpService, GeneralService]
     })
       .compileComponents();
   }));

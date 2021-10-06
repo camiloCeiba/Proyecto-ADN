@@ -7,6 +7,7 @@ import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { AlquilerModule } from './feature/alquiler/alquiler.module';
 import { AdminPrestamoModule } from './feature/admin-prestamo/admin-prestamo.module';
+import { GeneralService } from '@shared/services/general.service';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { AdminPrestamoModule } from './feature/admin-prestamo/admin-prestamo.mod
     CoreModule,
     AdminPrestamoModule
   ],
-  providers: [CookieService],
+  providers: [CookieService, GeneralService],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
