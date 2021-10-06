@@ -19,17 +19,30 @@ export class AlquilerLibroComponent implements OnInit {
   public id: number;
   public persona: Person;
 
-  constructor(protected generalService: GeneralService,
-              private route: ActivatedRoute,
-              private alquilerService: AlquilerService,
-              private router: Router
-              ) {
-    this.id = parseInt( this.route.snapshot.paramMap.get('id'), 0);
+  constructor(
+    protected generalService: GeneralService,
+    private route: ActivatedRoute,
+    private alquilerService: AlquilerService,
+    private router: Router
+  ) {
+    this.id = parseInt(this.route.snapshot.paramMap.get('id'), 0);
     this.persona = {
       nombrePersona: '',
       cedula: null,
       rol: '',
       user: ''
+    };
+    this.producto = {
+      nombreLibro: '',
+      id: null,
+      editorial: '',
+      resumen: '',
+      categoria: '',
+      URL: '',
+      estado: '',
+      fechaPublicacion: null,
+      valorDia: null,
+      codigoLibro: null
     };
   }
 
@@ -79,7 +92,7 @@ export class AlquilerLibroComponent implements OnInit {
     let fechaFinal;
     this.alquilerForm.get('fechaAlquiler').valueChanges.subscribe(fechaI => {
       fechaInicial = moment(fechaI);
-      if (fechaInicial.day() === 0 ){
+      if (fechaInicial.day() === 0) {
         alert('Los dias domingos no se pueden reservar libros');
         this.alquilerForm.get('valorTotal').setValue(undefined);
         return;
@@ -93,11 +106,11 @@ export class AlquilerLibroComponent implements OnInit {
     });
   }
 
-  calcularValor(fechaInicial, fechaFinal){
-    if (fechaInicial !== undefined && fechaFinal !== undefined){
-      if (fechaFinal.diff(fechaInicial, 'days') > 0){
+  calcularValor(fechaInicial, fechaFinal) {
+    if (fechaInicial !== undefined && fechaFinal !== undefined) {
+      if (fechaFinal.diff(fechaInicial, 'days') > 0) {
         this.alquilerForm.get('valorTotal').setValue(fechaFinal.diff(fechaInicial, 'days') * this.producto.valorDia);
-      }else{
+      } else {
         alert('La fecha final no puede ser menor a la fecha inicial');
       }
     }
