@@ -40,7 +40,10 @@ describe('NavbarComponent', () => {
     const linkPrestamo = SELECTORS.NAV_BAR.linkPrestamo();
     const linkListarLibro = SELECTORS.NAV_BAR.linkListarLibro();
     const linkListaAlquilar = SELECTORS.NAV_BAR.linkListaAlquilar();
-
+    console.log('linkCrearLibro', linkCrearLibro);
+    console.log('linkPrestamo', linkPrestamo);
+    console.log('linkListarLibro', linkListarLibro);
+    console.log('linkListaAlquilar', linkListaAlquilar);
     fixture.detectChanges();
     expect(linkCrearLibro?.tagName).toEqual('A');
     expect(linkPrestamo?.tagName).toEqual('A');
