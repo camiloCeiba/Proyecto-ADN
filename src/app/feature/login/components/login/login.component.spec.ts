@@ -1,4 +1,4 @@
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed} from '@angular/core/testing';
 import { eventInput } from '@shared/util/event-input';
 import { SELECTORS } from '@shared/util/selectors';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,7 +13,7 @@ describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let redirectPage;
-  let loginService: LoginService;
+  // let loginService: LoginService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -32,7 +32,7 @@ describe('LoginComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
-    loginService = TestBed.inject(LoginService);
+    // loginService = TestBed.inject(LoginService);
     component = fixture.componentInstance;
     redirectPage = spyOn(component, 'redirigir');
     localStorage.clear();
@@ -65,24 +65,24 @@ describe('LoginComponent', () => {
     expect(redirectPage).not.toHaveBeenCalled();
   });
 
-  it('Se debe iniciar sesión, almacenar el token en localStorage y redirigir a la pagina listar', fakeAsync(() => {
-    const inputUsername = SELECTORS.LOGIN.inputUsername();
-    const inputPassword = SELECTORS.LOGIN.inputPassword();
-    const btnLogin = SELECTORS.LOGIN.btnLogin();
+  // it('Se debe iniciar sesión, almacenar el token en localStorage y redirigir a la pagina listar', fakeAsync(() => {
+  //   const inputUsername = SELECTORS.LOGIN.inputUsername();
+  //   const inputPassword = SELECTORS.LOGIN.inputPassword();
+  //   const btnLogin = SELECTORS.LOGIN.btnLogin();
 
-    const username = 'Daniel';
-    const password = 'Daniel1025';
+  //   const username = 'Daniel';
+  //   const password = 'Daniel1025';
 
-    const spyLogin = spyOn(loginService, 'login').and.callThrough();
+  //   const spyLogin = spyOn(loginService, 'login').and.callThrough();
     // const { token } = new LoginMockService().loginSesion();
 
-    eventInput(inputUsername, username);
-    eventInput(inputPassword, password);
-    btnLogin.click();
-    fixture.detectChanges();
-    tick(2000);
-    expect(spyLogin).toHaveBeenCalled();
+    // eventInput(inputUsername, username);
+    // eventInput(inputPassword, password);
+    // btnLogin.click();
+    // fixture.detectChanges();
+    // tick(2000);
+    // expect(spyLogin).toHaveBeenCalled();
     // expect(localStorage.getItem('token')).toEqual(token);
     // expect(redirectPage).toHaveBeenCalled();
-  }));
+  // }));
 });

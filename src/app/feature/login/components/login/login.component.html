@@ -9,25 +9,25 @@
                     <form [formGroup]="formLogin" class="form" (ngSubmit)="login(formLogin.valid)">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <span class="input-group-text"><em class="fas fa-user"></em></span>
                             </div>
                             <div>
                                 <input id="inputUsername" type="text" formControlName="loginUser"
                                     [ngStyle]="loginUserValidate?{'border-color':'red'}:{'border-color':'green'}"
                                     class="form-control" placeholder="username">
-                                <small id="inputUsernameError" *ngIf="loginUserValidate" class="text-alert">{{msjErrorUser}}</small>
+                                <small id="inputUsernameError" *ngIf="loginUserValidate" class="texto-alert text-center">{{msjErrorUser}}</small>
                             </div>
                         </div>
                         <div class="input-group form-group d-flex">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                <span class="input-group-text"><em class="fas fa-key"></em></span>
                             </div>
                             <div>
                                 <input id="inputPassword" type="password" class="form-control" placeholder="password"
                                     formControlName="loginPassword"
                                     [ngStyle]="loginPasswordValidate?{'border-color':'red'}:{'border-color':'green'}"
                                     class="form-control">
-                                <small id="inputPasswordError" *ngIf="loginPasswordValidate" class="text-alert">{{msjErrorPass}}</small>
+                                <small id="inputPasswordError" *ngIf="loginPasswordValidate" class="texto-alert text-center">{{msjErrorPass}}</small>
                             </div>
                         </div>
                         <div class="form-group mt-4">
