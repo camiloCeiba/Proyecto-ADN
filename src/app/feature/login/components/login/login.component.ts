@@ -22,9 +22,10 @@ export class LoginComponent implements OnInit {
     private loginService: LoginService,
   ) {
     this.listType = [{ name: 'Administrador', idName: 'login_admin' }, { name: 'Usuario', idName: 'login_user' }];
+    const min = 9;
     this.formLogin = this.formBuilder.group({
       loginUser: [null, Validators.compose([Validators.required])],
-      loginPassword: [null, Validators.compose([Validators.required, Validators.minLength(9)])],
+      loginPassword: [null, Validators.compose([Validators.required, Validators.minLength(min)])],
       type: [null, Validators.compose([Validators.required])],
     });
   }

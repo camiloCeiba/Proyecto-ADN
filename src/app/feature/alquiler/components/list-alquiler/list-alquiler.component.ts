@@ -71,9 +71,12 @@ export class ListAlquilerComponent implements OnInit {
       if (element.cedula === this.persona.cedula && element.estado === 'pendiente') {
         const fechaFinal = new Date(element.fechaDevolucion);
         const fechaAcual = new Date().getTime();
-        element.multa = (fechaAcual - fechaFinal.getTime()) / (1000 * 60 * 60 * 24) ?
-        Math.trunc((fechaAcual - fechaFinal.getTime()) / (1000 * 60 * 60 * 24)) * 100  : 0;
-        return element.cedula;
+        const mes = 1000;
+        const minutos = 60;
+        const segundos = 60;
+        const horas = 24;
+        element.multa = (fechaAcual - fechaFinal.getTime()) / (mes * minutos * segundos * horas) ?
+        Math.trunc((fechaAcual - fechaFinal.getTime()) / (mes * minutos * segundos * horas)) * 100  : 0;
       }
     });
 

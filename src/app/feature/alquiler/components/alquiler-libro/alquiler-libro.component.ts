@@ -28,7 +28,7 @@ export class AlquilerLibroComponent implements OnInit {
     this.id = parseInt(this.route.snapshot.paramMap.get('id'), 0);
     this.alquilerForm = new FormGroup({
       id: new FormControl(''),
-      cedula: new FormControl({ value: '', disabled: false }),
+      cedula: new FormControl('', [Validators.required]),
       fechaAlquiler: new FormControl('', [Validators.required]),
       fechaDevolucion: new FormControl('', [Validators.required]),
       valorTotal: new FormControl({ value: '', disabled: false }, [Validators.required]),
@@ -56,18 +56,12 @@ export class AlquilerLibroComponent implements OnInit {
       valorDia: null,
       codigoLibro: null
     };
-    // this.getPersona();
     this.getLibro();
     this.cambiosFecha();
   }
 
   getRandomId(max) {
     return Math.floor(Math.random() * max);
-  }
-
-  public getPersona() {
-    this.persona = this.generalService.getToken();
-    this.alquilerForm.get('cedula').setValue(this.persona.cedula);
   }
 
   public async getLibro() {
@@ -77,9 +71,11 @@ export class AlquilerLibroComponent implements OnInit {
 
   public async crear(validacion) {
     if (validacion) {
-      this.alquilerForm.get('id').setValue(this.getRandomId(99));
+      const numbera = 99;
+      this.alquilerForm.get('id').setValue(this.getRandomId(numbera));
       this.prestamo = await this.alquilerService.crear(this.alquilerForm.value);
       this.actualizarEstadoLibro();
+      return true;
     } else {
       this.alquilerForm.markAllAsTouched();
       return false;
@@ -102,26 +98,33 @@ export class AlquilerLibroComponent implements OnInit {
     let fechaFinal;
     this.alquilerForm.get('fechaAlquiler').valueChanges.subscribe((fechaI: Date) => {
       fechaInicial = new Date(fechaI);
-      if (fechaInicial.getDay() === 6) {
+      const diaDomingo =  6;
+      if (fechaInicial.getDay() === diaDomingo) {
         alert('Los dias domingos no se pueden reservar libros');
         this.alquilerForm.get('valorTotal').setValue(undefined);
         return false;
       } else {
         this.calcularValor(fechaInicial, fechaFinal);
+        return true;
       }
     });
 
     this.alquilerForm.get('fechaDevolucion').valueChanges.subscribe(fechaF => {
       fechaFinal = new Date(fechaF);
       this.calcularValor(fechaInicial, fechaFinal);
+      return true;
     });
   }
 
   calcularValor(fechaInicial: Date, fechaFinal: Date): void {
     if (fechaInicial !== undefined && fechaFinal !== undefined) {
-      if ((fechaFinal.getTime() - fechaInicial.getTime()) / (1000 * 60 * 60 * 24) > 0) {
+      const mes = 1000;
+      const minutos = 60;
+      const segundos = 60;
+      const horas = 24;
+      if ((fechaFinal.getTime() - fechaInicial.getTime()) / (mes * minutos * segundos * horas) > 0) {
         this.alquilerForm.get('valorTotal').setValue(
-          (fechaFinal.getTime() - fechaInicial.getTime()) / (1000 * 60 * 60 * 24) * this.producto.valorDia);
+          (fechaFinal.getTime() - fechaInicial.getTime()) / (mes * minutos * segundos * horas) * this.producto.valorDia);
       } else {
         alert('La fecha final no puede ser menor a la fecha inicial');
       }

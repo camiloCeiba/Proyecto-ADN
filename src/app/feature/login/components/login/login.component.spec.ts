@@ -136,10 +136,4 @@ describe('LoginComponent', () => {
     expect(passwordError.textContent).toContain('La cantidad de caracteres debe ser minimo 9');
   }));
 
-  xit('Se redirige al entrar en la funcion', fakeAsync(() => {
-    component.redirigir();
-    tick(1000);
-    expect(redirectPage).toHaveBeenCalled();
-    expect(routeSpy.navigate).toHaveBeenCalledWith(['/producto/listar']);
-  }));
 });

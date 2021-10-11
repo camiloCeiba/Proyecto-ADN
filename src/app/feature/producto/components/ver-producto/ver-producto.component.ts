@@ -39,15 +39,20 @@ export class VerProductoComponent implements OnInit {
   }
 
   alquiler(item: Libro) {
-    if (this.totalPrestamos.length === 2) {
+    const valor = 2;
+    if (this.totalPrestamos.length === valor) {
       alert('No puedes reservar debido a que tienes 2 libros ya alquilados');
       return false;
+    }else{
+      if (item.estado === 'Disponible') {
+        this.routerVerProducto(item.id);
+        return true;
+      } else {
+        alert('El libro no se encuentra disponible para el alquiler');
+        return false;
+      }
     }
-    if (item.estado === 'Disponible') {
-      this.routerVerProducto(item.id);
-    } else {
-      alert('El libro no se encuentra disponible para el alquiler');
-    }
+
   }
 
   public routerVerProducto(id: number): void {

@@ -159,18 +159,4 @@ describe('AlquilerLibroComponent', () => {
     expect(component.alquilerForm.controls.valorTotal.value).toEqual('');
   }));
 
-  xit('Calcula el valor por los dias', fakeAsync(() => {
-    console.log('7');
-    const libro = new GeneralMockService().consultarId();
-    const fechaInicial = new Date('2021-10-11');
-    const fechaFinal = new Date('2021-10-13');
-    component.producto = libro;
-    component.calcularValor(fechaInicial, fechaFinal);
-    tick(1000);
-    fixture.detectChanges();
-    fixture.whenStable().then(() => {
-      expect(component.alquilerForm.controls.valorTotal.value).toEqual('');
-    });
-
-  }));
 });

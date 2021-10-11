@@ -20,7 +20,8 @@ export class CrearProductoComponent implements OnInit {
 
   public async crear(validacion) {
     if (validacion){
-      this.libroForm.get('id').setValue(this.getRandomId(99));
+      const numbera = 99;
+      this.libroForm.get('id').setValue(this.getRandomId(numbera));
       this.producto = await this.libroService.crear(this.libroForm.value);
       this.redirigir();
     }

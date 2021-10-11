@@ -19,12 +19,12 @@ describe('ProductoService', () => {
     service = TestBed.inject(ProductoService);
   });
 
-  xit('should be created', () => {
+  it('should be created', () => {
     const productService: ProductoService = TestBed.inject(ProductoService);
     expect(productService).toBeTruthy();
   });
 
-  xit('deberia listar libros', () => {
+  it('deberia listar libros', () => {
     const dummyLibros = [new Libro(
                                               'Arsène Lupin - Caballero y Ladrón',
                                               'Blanco&Negro',

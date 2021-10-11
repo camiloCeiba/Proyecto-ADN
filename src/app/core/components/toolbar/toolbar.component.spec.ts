@@ -9,18 +9,16 @@ describe('ToolbarComponent', () => {
   let component: ToolbarComponent;
   let fixture: ComponentFixture<ToolbarComponent>;
   let redirectPage;
-  let routeSpy;
   beforeEach(waitForAsync(() => {
-    routeSpy = {navigate: jasmine.createSpy('navigate')};
     TestBed.configureTestingModule({
-      declarations: [ ToolbarComponent ],
+      declarations: [ToolbarComponent],
       imports: [
         [RouterTestingModule.withRoutes([
-          {  path: 'login', component: LoginComponent }
+          { path: 'login', component: LoginComponent }
         ])],
       ],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -48,12 +46,5 @@ describe('ToolbarComponent', () => {
     expect(redirectPage).toHaveBeenCalled();
   });
 
-  xit('la funcion debe borrar localstorage y redirigir', () => {
-    component.cerrarSesion();
-    fixture.detectChanges();
-
-    expect(localStorage.length).toEqual(0);
-    expect(routeSpy.navigate).toHaveBeenCalledWith([`/login`]);
-  });
 
 });

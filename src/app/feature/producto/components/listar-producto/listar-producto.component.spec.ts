@@ -162,12 +162,4 @@ describe('ListarProductoComponent', () => {
     expect(component.totalPrestamos.length).toEqual(2);
   }));
 
-  xit('Se redirige al entrar en la funcion', () => {
-    const valor = 1;
-    component.routerVerProducto(valor);
-    fixture.detectChanges();
-    expect(redirectPageAlqular).toHaveBeenCalled();
-    expect(routeSpy.navigate).toHaveBeenCalledWith([`/producto/detalles/${valor}`]);
-  });
-
 });

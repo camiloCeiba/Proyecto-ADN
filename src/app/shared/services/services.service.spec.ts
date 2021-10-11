@@ -35,13 +35,13 @@ describe('Service: Services', () => {
     service = TestBed.inject(GeneralService);
   });
 
-  xit('should be created', () => {
+  it('should be created', () => {
     const productService: GeneralService = TestBed.inject(GeneralService);
     expect(productService).toBeTruthy();
   });
 
 
-  xit('deberia traer el libro con id 1', fakeAsync(() => {
+  it('deberia traer el libro con id 1', fakeAsync(() => {
     const id = 1;
     service.consultarId(id).then(productos => {
       expect(productos).toEqual(dummyLibros);

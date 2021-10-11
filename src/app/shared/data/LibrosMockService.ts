@@ -1,6 +1,6 @@
-export class LibrosMockService{
+export class LibrosMockService {
     getLibros() {
-        return(
+        return (
             {
                 id: 1,
                 cedula: 1023009710,
@@ -19,8 +19,8 @@ export class LibrosMockService{
             }
         );
     }
-    getVerLibro(){
-        return({
+    getVerLibro() {
+        return ({
             id: 1,
             nombreLibro: 'Arsène Lupin - Caballero y Ladrón',
             editorial: 'Blanco&Negro',
@@ -34,8 +34,8 @@ export class LibrosMockService{
         });
     }
 
-    crear(){
-        return({
+    crear() {
+        return ({
             id: 99,
             nombreLibro: 'Nombre Test',
             editorial: 'Blanco&Negro',

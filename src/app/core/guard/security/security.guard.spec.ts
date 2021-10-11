@@ -43,8 +43,4 @@ describe('SecurityGuard', () => {
     console.log('40');
     expect(securityGuard.canActivate()).toBe(false);
   });
-
-  xit('Se redirige al entrar en la funcion', () => {
-    expect(router.navigate).toHaveBeenCalledWith(['/producto/listar']);
-  });
 });
