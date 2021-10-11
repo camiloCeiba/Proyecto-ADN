@@ -22,7 +22,7 @@ describe('libroService', () => {
     service = TestBed.inject(LibroService);
   });
 
-  it('should be created libroService', () => {
+  xit('should be created libroService', () => {
     const productService: LibroService = TestBed.inject(LibroService);
     expect(productService).toBeTruthy();
   });
