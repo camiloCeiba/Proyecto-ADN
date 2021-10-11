@@ -62,11 +62,13 @@ describe('AlquilerService', () => {
   });
 
   it('should be created', () => {
+    console.log('10');
     const productService: AlquilerService = TestBed.inject(AlquilerService);
     expect(productService).toBeTruthy();
   });
 
   it('Deberia actualizar el libro con ID 1 al nuevo valor', () => {
+    console.log('11');
     service.actualizar(dummyLibro).then(productos => {
       expect(productos).toEqual(dummyLibro);
     });
@@ -76,6 +78,7 @@ describe('AlquilerService', () => {
   });
 
   it('Deberia actualizar el prestamo a pagado', () => {
+    console.log('12');
     service.actualizarPrestamo(dummyPrestamo).then(prestamo => {
       expect(prestamo).toEqual(dummyPrestamo);
     });
@@ -85,6 +88,7 @@ describe('AlquilerService', () => {
   });
 
   it('Deberia crear un prestamo', () => {
+    console.log('13');
     service.crear(dummyPrestamoDos).then(prestamo => {
       expect(prestamo).toEqual(dummyPrestamoDos);
     });

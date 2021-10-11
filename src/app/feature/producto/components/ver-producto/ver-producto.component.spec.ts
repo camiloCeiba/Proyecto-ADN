@@ -52,10 +52,12 @@ describe('VerProductoComponent', () => {
   });
 
   it('should create', () => {
+    console.log('31');
     expect(component).toBeTruthy();
   });
 
   it('Se trae la informacion del primer libro con id 1', fakeAsync(() => {
+    console.log('32');
     component.id = 1;
     const libro  = new GeneralMockService().consultarId();
     spyOn(generalService, 'consultarId').and.returnValue(
@@ -88,6 +90,7 @@ describe('VerProductoComponent', () => {
   }));
 
   it('No permite alquilar si ya tiene dos libros alquilados detalle', fakeAsync(() => {
+    console.log('33');
     const prestamo = new GeneralMockService().consultarPrestamos();
     component.totalPrestamos.push(prestamo[0]);
     component.totalPrestamos.push(prestamo[0]);
@@ -100,6 +103,7 @@ describe('VerProductoComponent', () => {
   }));
 
   it('No permite alquilar si el libro esta ocupado detalle', fakeAsync(() => {
+    console.log('34');
     const prestamo = new GeneralMockService().consultarPrestamos();
     component.totalPrestamos.push(prestamo[0]);
     component.producto = new GeneralMockService().consultarId();
@@ -112,6 +116,7 @@ describe('VerProductoComponent', () => {
   }));
 
   it('LLama la funcion si cumple', fakeAsync(() => {
+    console.log('35');
     const prestamo = new GeneralMockService().consultarPrestamos();
     component.totalPrestamos.push(prestamo[0]);
     component.producto = new GeneralMockService().consultarId();

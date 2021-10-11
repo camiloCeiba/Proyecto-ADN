@@ -49,6 +49,7 @@ describe('LoginComponent', () => {
   });
 
   it('Error por username y password vacio', () => {
+    console.log('21');
     const inputUsername = SELECTORS.LOGIN.inputUsername();
     const inputPassword = SELECTORS.LOGIN.inputPassword();
     const btnLogin = SELECTORS.LOGIN.btnLogin();
@@ -75,6 +76,7 @@ describe('LoginComponent', () => {
   });
 
   it('Se debe iniciar sesión, almacenar el token en localStorage y redirigir a la pagina listar', fakeAsync(() => {
+    console.log('22');
     const inputUsername = SELECTORS.LOGIN.inputUsername();
     const inputPassword = SELECTORS.LOGIN.inputPassword();
     const btnLogin = SELECTORS.LOGIN.btnLogin();
@@ -96,7 +98,7 @@ describe('LoginComponent', () => {
   }));
 
   it('Redirige al tener lleno el formulario', fakeAsync(() => {
-
+    console.log('43');
     component.formLogin.get('loginUser').setValue('Daniel');
     component.formLogin.get('loginPassword').setValue('Daniel1025');
     component.formLogin.get('type').setValue('login_admin');
@@ -116,6 +118,7 @@ describe('LoginComponent', () => {
 
 
   it('La contraseña debe ser minimo de 9 caracteres', fakeAsync(() => {
+    console.log('44');
     const inputPassword = SELECTORS.LOGIN.inputPassword();
     const btnLogin = SELECTORS.LOGIN.btnLogin();
 

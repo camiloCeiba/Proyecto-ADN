@@ -21,12 +21,14 @@ describe('Service: Login', () => {
   });
 
   it('El componente se creo de forma exitosa', () => {
+    console.log('19');
     const loginService: LoginService = TestBed.inject(LoginService);
     expect(loginService).toBeTruthy();
   });
 
 
   it('Deberia traer usuario admin', fakeAsync(() => {
+    console.log('20');
     const token = new LoginMockService().login();
     service.login('login_admin').then(user => {
       expect(user).toEqual(token);

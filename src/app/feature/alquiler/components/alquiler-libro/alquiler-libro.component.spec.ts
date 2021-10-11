@@ -64,10 +64,12 @@ describe('AlquilerLibroComponent', () => {
   });
 
   it('should create AlquilerLibroComponent', () => {
+    console.log('1');
     expect(component).toBeTruthy();
   });
 
   it('Datos vacios, no permite guardar, ni redirigir', () => {
+    console.log('2');
     const inputCodigoLibro = SELECTORS.ALQUILER.inputCodigoLibro();
     const inputFechaInicial = SELECTORS.ALQUILER.inputFechaInicial();
     const inputFechaFinal = SELECTORS.ALQUILER.inputFechaFinal();
@@ -94,6 +96,7 @@ describe('AlquilerLibroComponent', () => {
   });
 
   it('crear alquiler de libro', fakeAsync(() => {
+    console.log('3');
     const alquiler = new AlquilerMockService().crear();
     const libro = new AlquilerMockService().actualizar();
     component.alquilerForm.controls.id.setValue(alquiler.id);
@@ -124,6 +127,7 @@ describe('AlquilerLibroComponent', () => {
   }));
 
   it('Trae el libro por el id', fakeAsync(() => {
+    console.log('4');
     const libro = new GeneralMockService().consultarId();
     spyOn(generalService, 'consultarId').and.returnValue(
       Promise.resolve(libro)
@@ -138,6 +142,7 @@ describe('AlquilerLibroComponent', () => {
   }));
 
   it('Si la fecha es un domingo no permite reservar libro', fakeAsync(() => {
+    console.log('5');
     const inputFechaInicial = SELECTORS.ALQUILER.inputFechaInicial();
     const fechaInicial = '2021-10-10';
     eventInput(inputFechaInicial, fechaInicial);
@@ -145,6 +150,7 @@ describe('AlquilerLibroComponent', () => {
   }));
 
   it('fecha final no debe ser mejor a la inicial', fakeAsync(() => {
+    console.log('6');
     const fechaInicial = new Date('2021-10-11');
     const fechaFinal = new Date('2021-10-09');
     component.calcularValor(fechaInicial, fechaFinal);
@@ -154,6 +160,7 @@ describe('AlquilerLibroComponent', () => {
   }));
 
   xit('Calcula el valor por los dias', fakeAsync(() => {
+    console.log('7');
     const libro = new GeneralMockService().consultarId();
     const fechaInicial = new Date('2021-10-11');
     const fechaFinal = new Date('2021-10-13');

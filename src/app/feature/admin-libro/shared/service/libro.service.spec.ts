@@ -22,12 +22,14 @@ describe('libroService', () => {
     service = TestBed.inject(LibroService);
   });
 
-  xit('should be created libroService', () => {
+  it('should be created libroService', () => {
+    console.log('18');
     const productService: LibroService = TestBed.inject(LibroService);
     expect(productService).toBeTruthy();
   });
 
   it('deberia crear un nuevo libro', () => {
+    console.log('17');
     const libroNew = new LibrosMockService().crear();
     service.crear(libroNew).then(productos => {
       expect(productos).toEqual(libroNew);

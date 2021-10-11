@@ -32,10 +32,12 @@ describe('ToolbarComponent', () => {
   });
 
   it('should create ToolbarComponent', () => {
+    console.log('37');
     expect(component).toBeTruthy();
   });
 
   it('Se debe cerrar sesión, borrar el token en localStorage y redirigir a la pagina de login', () => {
+    console.log('38');
     const btnCerrarSesion = SELECTORS.TOOLBAR.btnCerrarSesion();
 
     btnCerrarSesion.click();

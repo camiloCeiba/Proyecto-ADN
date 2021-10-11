@@ -61,10 +61,12 @@ describe('ListarProductoComponent', () => {
   });
 
   it('Se creo ListarProductoComponent', () => {
+    console.log('23');
     expect(component).toBeTruthy();
   });
 
   it('La funcion se ejecuta correctamente', fakeAsync(() => {
+    console.log('24');
     const producto = new ProductoMockService().consultar();
     component.listarLibros();
     tick(1000);
@@ -75,6 +77,7 @@ describe('ListarProductoComponent', () => {
   }));
 
   it('La lista se llena con la informacion', fakeAsync(() => {
+    console.log('25');
     const i = 0;
     component.listarLibros();
     tick(1000);
@@ -91,6 +94,7 @@ describe('ListarProductoComponent', () => {
   }));
 
   it('Redirigir al componente ver-producto de id 1', fakeAsync(() => {
+    console.log('26');
     const i = 0;
     component.listarLibros();
     tick(1000);
@@ -101,6 +105,7 @@ describe('ListarProductoComponent', () => {
   }));
 
   it('No permite alquilar si ya tiene dos libros alquilados', fakeAsync(() => {
+    console.log('27');
     const i = 1;
     const prestamo = new GeneralMockService().consultarPrestamos();
     component.totalPrestamos.push(prestamo[0]);
@@ -114,6 +119,7 @@ describe('ListarProductoComponent', () => {
   }));
 
   it('No permite alquilar si el libro esta ocupado', fakeAsync(() => {
+    console.log('28');
     const i = 1;
     const prestamo = new GeneralMockService().consultarPrestamos();
     component.totalPrestamos.push(prestamo[0]);
@@ -127,6 +133,7 @@ describe('ListarProductoComponent', () => {
   }));
 
   it('Si cumple se debe enviar a alquilar el libro', fakeAsync(() => {
+    console.log('29');
     const i = 0;
     const prestamo = new GeneralMockService().consultarPrestamos();
     component.totalPrestamos.push(prestamo[0]);
@@ -140,6 +147,7 @@ describe('ListarProductoComponent', () => {
   }));
 
   it('El total de libros prestados debe ser igual a dos', fakeAsync(() => {
+    console.log('30');
     const prestamo = new GeneralMockService().consultarPrestamos();
     const persona = new GeneralMockService().getToken();
     spyOn(generalService, 'consultarPrestamos').and.returnValue(

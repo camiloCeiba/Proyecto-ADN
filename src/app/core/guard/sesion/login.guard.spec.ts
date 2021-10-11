@@ -33,9 +33,11 @@ describe('LoginGuard', () => {
   });
 
   it('El usuario no se ha logueado y lo mantiene en el login', () => {
+    console.log('41');
     expect(loginGuard.canActivate()).toBe(true);
   });
   it('El usuario se ha logueado previamente, lo lleva a la vista general', () => {
+    console.log('42');
     spyOn(generalService, 'getToken').and.returnValue(
       new GeneralMockService().getToken()
     );

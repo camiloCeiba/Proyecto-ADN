@@ -14,7 +14,7 @@ describe('CrearProductoComponent', () => {
   let redirectPage;
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CrearProductoComponent ],
+      declarations: [CrearProductoComponent],
       imports: [
         CommonModule,
         HttpClientModule,
@@ -23,11 +23,11 @@ describe('CrearProductoComponent', () => {
         FormsModule
       ],
       providers: [
-        {provide: LibroService, ussClass: LibrosMockService}
+        { provide: LibroService, ussClass: LibrosMockService }
         , HttpService
       ],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -42,14 +42,17 @@ describe('CrearProductoComponent', () => {
   });
 
   it('should create CrearProductoComponent', () => {
+    console.log('14');
     expect(component).toBeTruthy();
   });
 
   it('formulario es invalido cuando esta vacio', () => {
+    console.log('15');
     expect(component.libroForm.valid).toBeFalsy();
   });
 
   it('Registrando producto', fakeAsync(() => {
+    console.log('16');
     const libroNew = new LibrosMockService().crear();
     expect(component.libroForm.valid).toBeFalsy();
     component.libroForm.controls.id.setValue(libroNew.id);

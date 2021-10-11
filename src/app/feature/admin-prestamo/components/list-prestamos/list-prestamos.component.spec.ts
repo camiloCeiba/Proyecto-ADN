@@ -42,10 +42,12 @@ describe('ListPrestamosComponent', () => {
   });
 
   it('should create ListPrestamosComponent', () => {
+    console.log('8');
     expect(component).toBeTruthy();
   });
 
   it('Se obtiene la lista de libros prestados', fakeAsync(() => {
+    console.log('9');
     let inputNombre: HTMLElement;
     let inputURL: HTMLImageElement;
     let inputeditorial: HTMLSpanElement;

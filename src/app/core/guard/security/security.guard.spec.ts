@@ -32,6 +32,7 @@ describe('SecurityGuard', () => {
   });
 
   it('Poder acceder a la ruta cuando el usuario está conectado', () => {
+    console.log('39');
     spyOn(generalService, 'getToken').and.returnValue(
       new GeneralMockService().getToken()
     );
@@ -39,6 +40,7 @@ describe('SecurityGuard', () => {
   });
 
   it('No poder acceder a la ruta cuando el usuario no está conectado', () => {
+    console.log('40');
     expect(securityGuard.canActivate()).toBe(false);
   });
 

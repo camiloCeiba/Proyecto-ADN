@@ -36,6 +36,7 @@ describe('NavbarComponent', () => {
   });
 
   it('Validacion de existencia de elementos', () => {
+    console.log('36');
     const linkCrearLibro = SELECTORS.NAV_BAR.linkCrearLibro();
     const linkPrestamo = SELECTORS.NAV_BAR.linkPrestamo();
     const linkListarLibro = SELECTORS.NAV_BAR.linkListarLibro();
