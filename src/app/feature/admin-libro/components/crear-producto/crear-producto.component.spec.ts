@@ -1,12 +1,12 @@
 import { waitForAsync, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { CrearProductoComponent } from './crear-producto.component';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LibroService } from '../../shared/service/libro.service';
 import { LibrosMockService } from '@shared/data/LibrosMockService';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 describe('CrearProductoComponent', () => {
   let component: CrearProductoComponent;
   let fixture: ComponentFixture<CrearProductoComponent>;
@@ -17,7 +17,7 @@ describe('CrearProductoComponent', () => {
       declarations: [CrearProductoComponent],
       imports: [
         CommonModule,
-        HttpClientModule,
+        HttpClientTestingModule,
         RouterTestingModule,
         ReactiveFormsModule,
         FormsModule

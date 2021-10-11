@@ -3,7 +3,6 @@ import { of } from 'rxjs';
 
 import { ListarProductoComponent } from './listar-producto.component';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ProductoService } from '../../shared/service/producto.service';
 import { HttpService } from 'src/app/core/services/http.service';
@@ -13,6 +12,7 @@ import { ProductoMockService } from '@shared/data/productoMockService';
 import { SELECTORS } from '@shared/util/selectors';
 import { Router } from '@angular/router';
 import { VerProductoComponent } from '../ver-producto/ver-producto.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ListarProductoComponent', () => {
   let component: ListarProductoComponent;
@@ -28,7 +28,7 @@ describe('ListarProductoComponent', () => {
       declarations: [ListarProductoComponent, VerProductoComponent],
       imports: [
         CommonModule,
-        HttpClientModule,
+        HttpClientTestingModule,
         [RouterTestingModule.withRoutes([
           {  path: 'detalles/:id', component: VerProductoComponent }
       ])],
