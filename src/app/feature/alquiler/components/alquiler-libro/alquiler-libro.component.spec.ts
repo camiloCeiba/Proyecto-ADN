@@ -93,7 +93,7 @@ describe('AlquilerLibroComponent', () => {
     expect(redirectPage).not.toHaveBeenCalled();
   });
 
-  it('crear alquiler de libro', fakeAsync(() => {
+  xit('acrear alquiler de libro', fakeAsync(() => {
     const alquiler = new AlquilerMockService().crear();
     const libro = new AlquilerMockService().actualizar();
     component.alquilerForm.controls.id.setValue(alquiler.id);
@@ -123,7 +123,7 @@ describe('AlquilerLibroComponent', () => {
     expect(redirectPage).toHaveBeenCalled();
   }));
 
-  it('Trae el libro por el id', fakeAsync(() => {
+  xit('aTrae el libro por el id', fakeAsync(() => {
     const libro = new GeneralMockService().consultarId();
     spyOn(generalService, 'consultarId').and.returnValue(
       Promise.resolve(libro)
