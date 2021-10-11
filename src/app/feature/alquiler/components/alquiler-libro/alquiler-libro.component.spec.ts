@@ -131,8 +131,10 @@ describe('AlquilerLibroComponent', () => {
     component.getLibro();
     tick(1000);
     fixture.detectChanges();
-
-    expect(component.producto).toEqual(libro);
+    expect(component.producto.categoria).toEqual(libro.categoria);
+    expect(component.producto.URL).toEqual(libro.URL);
+    expect(component.producto.editorial).toEqual(libro.editorial);
+    expect(component.producto.estado).toEqual(libro.estado);
   }));
 
   it('Si la fecha es un domingo no permite reservar libro', fakeAsync(() => {
