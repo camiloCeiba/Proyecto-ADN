@@ -64,14 +64,15 @@ describe('ListarProductoComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('La funcion se ejecuta correctamente', () => {
-    component.listarLibros();
+  it('La funcion se ejecuta correctamente', fakeAsync(() => {
     const producto = new ProductoMockService().consultar();
+    component.listarLibros();
+    tick(1000);
     fixture.detectChanges();
     component.listaProductos.subscribe(resultado => {
       expect(resultado).toEqual(producto);
     });
-  });
+  }));
 
   it('La lista se llena con la informacion', fakeAsync(() => {
     const i = 0;
