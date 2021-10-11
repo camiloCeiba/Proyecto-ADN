@@ -150,6 +150,7 @@ describe('ListarProductoComponent', () => {
     component.autorizarAlquilar();
     tick(1000);
     fixture.detectChanges();
+    console.log(component.totalPrestamos.length);
     expect(component.totalPrestamos.length).toEqual(2);
   }));
 
