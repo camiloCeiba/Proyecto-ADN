@@ -52,7 +52,7 @@ describe('VerProductoComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Se trae la informacion del primer libro con id 1', fakeAsync(() => {
+  xit('aSe trae la informacion del primer libro con id 1', fakeAsync(() => {
     component.id = 1;
     const libro = new GeneralMockService().consultarId();
     spyOn(generalService, 'consultarId').and.returnValue(
@@ -108,7 +108,7 @@ describe('VerProductoComponent', () => {
     expect(redirectPage).not.toHaveBeenCalled();
   }));
 
-  it('LLama la funcion si cumple', fakeAsync(() => {
+  xit('aLLama la funcion si cumple', fakeAsync(() => {
     const prestamo = new GeneralMockService().consultarPrestamos();
     component.totalPrestamos.push(prestamo[0]);
     component.producto = new GeneralMockService().consultarId();

@@ -14,7 +14,7 @@ describe('CrearProductoComponent', () => {
   let redirectPage;
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CrearProductoComponent ],
+      declarations: [CrearProductoComponent],
       imports: [
         CommonModule,
         HttpClientModule,
@@ -23,14 +23,11 @@ describe('CrearProductoComponent', () => {
         FormsModule
       ],
       providers: [
-        {provide: LibroService, ussClass: LibrosMockService}
+        { provide: LibroService, ussClass: LibrosMockService }
         , HttpService
       ],
     })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
+      .compileComponents();
     fixture = TestBed.createComponent(CrearProductoComponent);
     component = fixture.componentInstance;
     libroService = TestBed.inject(LibroService);
@@ -39,7 +36,7 @@ describe('CrearProductoComponent', () => {
       Promise.resolve(new LibrosMockService().crear())
     );
     fixture.detectChanges();
-  });
+  }));
 
   it('should create CrearProductoComponent', () => {
     expect(component).toBeTruthy();

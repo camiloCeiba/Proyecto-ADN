@@ -28,9 +28,6 @@ describe('ListPrestamosComponent', () => {
         , HttpService, LibrosMockService
       ]
     }).compileComponents();
-  });
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(ListPrestamosComponent);
     generalService = TestBed.inject(GeneralService);
     component = fixture.componentInstance;
