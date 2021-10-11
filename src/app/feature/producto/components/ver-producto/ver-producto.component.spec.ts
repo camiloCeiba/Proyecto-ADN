@@ -99,7 +99,7 @@ describe('VerProductoComponent', () => {
     expect(redirectPage).not.toHaveBeenCalled();
   }));
 
-  it('No permite alquilar si el libro esta ocupado detalle', fakeAsync(() => {
+  xit('aNo permite alquilar si el libro esta ocupado detalle', fakeAsync(() => {
     const prestamo = new GeneralMockService().consultarPrestamos();
     component.totalPrestamos.push(prestamo[0]);
     component.producto = new GeneralMockService().consultarId();
