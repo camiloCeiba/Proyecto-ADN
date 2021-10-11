@@ -17,9 +17,9 @@ describe('VerProductoComponent', () => {
   let routeSpy;
   let redirectPage;
   beforeEach(waitForAsync(() => {
-    routeSpy = { navigate: jasmine.createSpy('navigateByUrl') };
+    routeSpy = {navigate: jasmine.createSpy('navigateByUrl')};
     TestBed.configureTestingModule({
-      declarations: [VerProductoComponent],
+      declarations: [ VerProductoComponent ],
       imports: [
         CommonModule,
         HttpClientModule,
@@ -40,21 +40,24 @@ describe('VerProductoComponent', () => {
         HttpService
       ],
     })
-      .compileComponents();
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(VerProductoComponent);
     component = fixture.componentInstance;
     generalService = TestBed.inject(GeneralService);
     redirectPage = spyOn(component, 'routerVerProducto');
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  xit('aSe trae la informacion del primer libro con id 1', fakeAsync(() => {
+  it('Se trae la informacion del primer libro con id 1', fakeAsync(() => {
     component.id = 1;
-    const libro = new GeneralMockService().consultarId();
+    const libro  = new GeneralMockService().consultarId();
     spyOn(generalService, 'consultarId').and.returnValue(
       Promise.resolve(libro)
     );
@@ -84,7 +87,7 @@ describe('VerProductoComponent', () => {
     expect(inputSpanCodigoLibro.textContent).toEqual(libro.codigoLibro.toString());
   }));
 
-  xit('aNo permite alquilar si ya tiene dos libros alquilados detalle', fakeAsync(() => {
+  it('No permite alquilar si ya tiene dos libros alquilados detalle', fakeAsync(() => {
     const prestamo = new GeneralMockService().consultarPrestamos();
     component.totalPrestamos.push(prestamo[0]);
     component.totalPrestamos.push(prestamo[0]);
@@ -96,7 +99,7 @@ describe('VerProductoComponent', () => {
     expect(redirectPage).not.toHaveBeenCalled();
   }));
 
-  xit('aNo permite alquilar si el libro esta ocupado detalle', fakeAsync(() => {
+  it('No permite alquilar si el libro esta ocupado detalle', fakeAsync(() => {
     const prestamo = new GeneralMockService().consultarPrestamos();
     component.totalPrestamos.push(prestamo[0]);
     component.producto = new GeneralMockService().consultarId();
@@ -108,7 +111,7 @@ describe('VerProductoComponent', () => {
     expect(redirectPage).not.toHaveBeenCalled();
   }));
 
-  xit('aLLama la funcion si cumple', fakeAsync(() => {
+  it('LLama la funcion si cumple', fakeAsync(() => {
     const prestamo = new GeneralMockService().consultarPrestamos();
     component.totalPrestamos.push(prestamo[0]);
     component.producto = new GeneralMockService().consultarId();

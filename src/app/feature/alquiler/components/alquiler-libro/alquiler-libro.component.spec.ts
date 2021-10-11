@@ -49,6 +49,9 @@ describe('AlquilerLibroComponent', () => {
         HttpService],
     })
       .compileComponents();
+  }));
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(AlquilerLibroComponent);
     component = fixture.componentInstance;
     component.persona = new GeneralMockService().getToken();
@@ -58,7 +61,7 @@ describe('AlquilerLibroComponent', () => {
     alquilerService = TestBed.inject(AlquilerService);
     generalService = TestBed.inject(GeneralService);
     fixture.detectChanges();
-  }));
+  });
 
   it('should create AlquilerLibroComponent', () => {
     expect(component).toBeTruthy();
@@ -90,7 +93,7 @@ describe('AlquilerLibroComponent', () => {
     expect(redirectPage).not.toHaveBeenCalled();
   });
 
-  xit('acrear alquiler de libro', fakeAsync(() => {
+  it('crear alquiler de libro', fakeAsync(() => {
     const alquiler = new AlquilerMockService().crear();
     const libro = new AlquilerMockService().actualizar();
     component.alquilerForm.controls.id.setValue(alquiler.id);
@@ -120,7 +123,7 @@ describe('AlquilerLibroComponent', () => {
     expect(redirectPage).toHaveBeenCalled();
   }));
 
-  xit('aTrae el libro por el id', fakeAsync(() => {
+  it('Trae el libro por el id', fakeAsync(() => {
     const libro = new GeneralMockService().consultarId();
     spyOn(generalService, 'consultarId').and.returnValue(
       Promise.resolve(libro)
@@ -134,7 +137,7 @@ describe('AlquilerLibroComponent', () => {
     expect(component.producto.estado).toEqual(libro.estado);
   }));
 
-  xit('aSi la fecha es un domingo no permite reservar libro', fakeAsync(() => {
+  it('Si la fecha es un domingo no permite reservar libro', fakeAsync(() => {
     const inputFechaInicial = SELECTORS.ALQUILER.inputFechaInicial();
     const fechaInicial = '2021-10-10';
     eventInput(inputFechaInicial, fechaInicial);
