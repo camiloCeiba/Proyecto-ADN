@@ -1,40 +1,40 @@
-<div *ngFor="let item of totalLibros">
+<div *ngFor="let item of totalLibros; let i=index">
   <div class="card-body">
     <div class="row">
       <div class="col-lg-4">
         <div class="row text-center">
           <div class="col-lg-12">
-            <strong>{{item!==undefined?item.nombreLibro:''}}</strong>
+            <strong id="{{'libroPrestamo-'+i+'-nombre'}}">{{item!==undefined?item.nombreLibro:''}}</strong>
           </div>
           <div class="col-lg-12">
-            <img [src]="item.URL" class="img" alt="item.nombreLibro">
+            <img id="{{'libroPrestamo-'+i+'-URL'}}" [src]="item.URL" class="img" alt="item.nombreLibro">
           </div>
         </div>
       </div>
       <div class="col-lg-8">
-        <span><strong>Cedula Persona:</strong> {{item.cedula}}</span>
+        <strong>Cedula Persona:</strong><span id="{{'libroPrestamo-'+i+'-cedula'}}">{{item.cedula}}</span>
         <div class="card">
           <div class="card-body">
             <div class="row">
               <div class="col-lg-6 d-grid">
-                <span><strong>Editorial:</strong> {{item.editorial}}</span>
-                <span><strong>Categoria:</strong> {{item.categoria}}</span>
-                <span><strong>Fecha publicacion:</strong> {{item.fechaPublicacion}}</span>
+                <strong>Editorial:</strong><span id="{{'libroPrestamo-'+i+'-editorial'}}">{{item.editorial}}</span>
+                <strong>Categoria:</strong><span id="{{'libroPrestamo-'+i+'-categoria'}}">{{item.categoria}}</span>
+                <strong>Fecha publicacion:</strong><span id="{{'libroPrestamo-'+i+'-fechaPublicacion'}}">{{item.fechaPublicacion}}</span>
               </div>
               <div class="col-lg-6 d-grid">
-                <span><strong>Estado:</strong> {{item.estado}}</span>
-                <span><strong>Valor x día:</strong> {{item.valorDia}}</span>
-                <span><strong>Codigo libro:</strong> {{item.codigoLibro}}</span>
+                <strong>Estado:</strong><span id="{{'libroPrestamo-'+i+'-estado'}}">{{item.estado}}</span>
+                <strong>Valor x día:</strong><span id="{{'libroPrestamo-'+i+'-valorDia'}}">{{item.valorDia}}</span>
+                <strong>Codigo libro:</strong><span id="{{'libroPrestamo-'+i+'-codigoLibro'}}">{{item.codigoLibro}}</span>
               </div>
             </div>
             <div class="row">
               <div class="col-lg-6 d-grid">
-                <span><strong>Fecha Alquiler:</strong> {{item.fechaAlquiler}}</span>
-                <span><strong>Fecha Devolucion:</strong> {{item.fechaDevolucion}}</span>
+                <strong>Fecha Alquiler:</strong><span id="{{'libroPrestamo-'+i+'-fechaAlquiler'}}">{{item.fechaAlquiler}}</span>
+                <strong>Fecha Devolucion:</strong><span id="{{'libroPrestamo-'+i+'-fechaDevolucion'}}">{{item.fechaDevolucion}}</span>
               </div>
               <div class="col-lg-6 d-grid">
-                <span><strong>Valor a pagar:</strong> {{item.valorTotal}}</span>
-                <span><strong>Valor multa:</strong> {{item.multa}}</span>
+                <strong>Valor a pagar:</strong><span id="{{'libroPrestamo-'+i+'-valorTotal'}}">{{item.valorTotal}}</span>
+                <strong>Valor multa:</strong><span id="{{'libroPrestamo-'+i+'-multa'}}">{{item.multa}}</span>
               </div>
             </div>
           </div>

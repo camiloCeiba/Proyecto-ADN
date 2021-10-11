@@ -18,7 +18,7 @@
         <div class="col-lg-12">
           <span>{{producto.resumen}}</span>
         </div>
-        <button type="button" class="btn btn-info" (click)="routerAlquiler(producto)">Alquilar</button>
+        <button type="button" id="buttonAlquilar" class="btn btn-info" (click)="alquiler(producto)">Alquilar</button>
       </div>
     </div>
   </div>
@@ -26,14 +26,14 @@
     <div class="card-body">
       <div class="row">
         <div class="col-lg-6 d-grid">
-          <span><strong>Editorial:</strong> {{producto.editorial}}</span>
-          <span><strong>Categoria:</strong> {{producto.categoria}}</span>
-          <span><strong>Fecha publicacion:</strong> {{producto.fechaPublicacion}}</span>
+          <strong>Editorial:</strong><span id="spanEditorial">{{producto.editorial}}</span>
+          <strong>Categoria:</strong><span id="spanCategoria">{{producto.categoria}}</span>
+          <strong>Fecha publicacion:</strong><span id="spanFechaPublicacion">{{producto.fechaPublicacion}}</span>
         </div>
         <div class="col-lg-6 d-grid">
-          <span><strong>Estado:</strong> {{producto.estado}}</span>
-          <span><strong>Valor x día:</strong> {{producto.valorDia}}</span>
-          <span><strong>Codigo libro:</strong> {{producto.codigoLibro}}</span>
+          <strong>Estado:</strong><span id="spanEstado">{{producto.estado}}</span>
+          <strong>Valor x día:</strong><span id="spanValorDia">{{producto.valorDia}}</span>
+          <strong>Codigo libro:</strong><span id="spanCodigoLibro">{{producto.codigoLibro}}</span>
         </div>
       </div>
     </div>

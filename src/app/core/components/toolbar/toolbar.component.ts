@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
     height: 48px;
     padding: 0 16px;
   }
-
   h1 {
     display: inline;
     font-size: 20px;
@@ -25,6 +24,7 @@ export class ToolbarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    // This is intentional
   }
 
   cerrarSesion(){

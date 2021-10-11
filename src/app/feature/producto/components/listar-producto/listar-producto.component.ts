@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable} from 'rxjs';
 import { ProductoService } from '@producto/shared/service/producto.service';
 import { Router } from '@angular/router';
 import { Libro, Person } from '@core/modelo/producto';
@@ -13,13 +13,13 @@ import { Prestamo } from '@core/modelo/prestamo';
 })
 export class ListarProductoComponent implements OnInit {
   public listaProductos: Observable<Libro[]>;
-  public totalPrestamos: Prestamo[];
+  public totalPrestamos: Prestamo[] = [];
   public persona: Person;
 
   constructor(protected generalService: GeneralService, protected productoService: ProductoService, private router: Router) { }
 
   ngOnInit() {
-    this.listaProductos = this.productoService.consultar();
+    this.listarLibros();
     this.autorizarAlquilar();
     this.persona = this.generalService.getToken();
   }
@@ -28,20 +28,24 @@ export class ListarProductoComponent implements OnInit {
     this.listaProductos = this.productoService.consultar();
   }
 
-  routerVerProducto(id: number) {
+  public routerVerProducto(id: number): void {
     this.router.navigateByUrl('/producto/detalles/' + id);
   }
 
-  routerAlquiler(item: Libro) {
+  alquiler(item: Libro) {
     if (this.totalPrestamos.length === 2){
       alert('No puedes reservar debido a que tienes 2 libros ya alquilados');
-      return;
+    } else {
+      if (item.estado === 'Disponible'){
+        this.routerAlquiler(item.id);
+      }else{
+        alert('El libro no se encuentra disponible para el alquiler');
+      }
     }
-    if (item.estado === 'Disponible'){
-      this.router.navigateByUrl('alquiler/alquiler-libro/' + item.id);
-    }else{
-      alert('El libro no se encuentra disponible para el alquiler');
-    }
+  }
+
+  routerAlquiler(id: number){
+    this.router.navigateByUrl('alquiler/alquiler-libro/' + id);
   }
 
   async autorizarAlquilar() {

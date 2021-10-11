@@ -8,9 +8,9 @@ export class LoginService {
 
   constructor(protected http: HttpService) { }
 
-  public login(): Promise<LoginSesion> {
+  public login(type: string): Promise<LoginSesion[]> {
     return new Promise((resolve) => {
-      this.http.doGet<LoginSesion>(`${environment.API}/login_admin`, this.http.optsName('login')).subscribe(data => {
+      this.http.doGet<LoginSesion[]>(`${environment.API}/${type}`, this.http.optsName('login')).subscribe(data => {
         resolve(data);
       });
     });

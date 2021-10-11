@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { eventInput } from '@shared/util/event-input';
 import { SELECTORS } from '@shared/util/selectors';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -9,12 +9,15 @@ import { HttpService } from '@core/services/http.service';
 import { LoginMockService } from '@shared/data/login-mock.service';
 import { LoginService } from '../../shared/services/login/login.service';
 import { GeneralService } from '@shared/services/general.service';
+import { GeneralMockService } from '@shared/data/generalMockService';
+import { Router } from '@angular/router';
 
+const routeSpy = {navigate: jasmine.createSpy('navigate')};
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let redirectPage;
-  // let loginService: LoginService;
+  let loginService: LoginService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -27,13 +30,18 @@ describe('LoginComponent', () => {
         RouterTestingModule,
         HttpClientTestingModule
       ],
-      providers: [LoginService, HttpService, LoginMockService, GeneralService]
+      providers: [
+        { provide: LoginService, useclass: LoginMockService },
+        { provide: GeneralService, useclass: GeneralMockService },
+        { provide: Router, useValue: routeSpy },
+        HttpService
+      ],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
-    // loginService = TestBed.inject(LoginService);
+    loginService = TestBed.inject(LoginService);
     component = fixture.componentInstance;
     redirectPage = spyOn(component, 'redirigir');
     localStorage.clear();
@@ -66,24 +74,69 @@ describe('LoginComponent', () => {
     expect(redirectPage).not.toHaveBeenCalled();
   });
 
-  // it('Se debe iniciar sesión, almacenar el token en localStorage y redirigir a la pagina listar', fakeAsync(() => {
-  //   const inputUsername = SELECTORS.LOGIN.inputUsername();
-  //   const inputPassword = SELECTORS.LOGIN.inputPassword();
-  //   const btnLogin = SELECTORS.LOGIN.btnLogin();
+  it('Se debe iniciar sesión, almacenar el token en localStorage y redirigir a la pagina listar', fakeAsync(() => {
+    const inputUsername = SELECTORS.LOGIN.inputUsername();
+    const inputPassword = SELECTORS.LOGIN.inputPassword();
+    const btnLogin = SELECTORS.LOGIN.btnLogin();
+    component.formLogin.get('type').setValue('login_admin');
+    const username = 'Daniel';
+    const password = 'Daniel1025';
+    const token = new LoginMockService().login();
+    eventInput(inputUsername, username);
+    eventInput(inputPassword, password);
+    const spyLogin = spyOn(loginService, 'login').and.returnValue(
+      Promise.resolve(token)
+    );
 
-  //   const username = 'Daniel';
-  //   const password = 'Daniel1025';
 
-  //   const spyLogin = spyOn(loginService, 'login').and.callThrough();
-  //   const { token } = new LoginMockService().loginSesion();
+    btnLogin.click();
+    fixture.detectChanges();
+    tick(1000);
+    expect(spyLogin).toHaveBeenCalled();
+  }));
 
-  //   eventInput(inputUsername, username);
-  //   eventInput(inputPassword, password);
-  //   btnLogin.click();
-  //   fixture.detectChanges();
-  //   tick(2000);
-  //   expect(spyLogin).toHaveBeenCalled();
-  //   expect(localStorage.getItem('token')).toEqual(token);
-  //   expect(redirectPage).toHaveBeenCalled();
-  // }));
+  it('Redirige al tener lleno el formulario', fakeAsync(() => {
+
+    component.formLogin.get('loginUser').setValue('Daniel');
+    component.formLogin.get('loginPassword').setValue('Daniel1025');
+    component.formLogin.get('type').setValue('login_admin');
+
+    const token = new LoginMockService().login();
+    const spyLogin = spyOn(loginService, 'login').and.returnValue(
+      Promise.resolve(token)
+    );
+
+    component.login(true);
+
+    fixture.detectChanges();
+    tick(1000);
+    expect(spyLogin).toHaveBeenCalled();
+    expect(redirectPage).not.toHaveBeenCalled();
+  }));
+
+
+  it('La contraseña debe ser minimo de 9 caracteres', fakeAsync(() => {
+    const inputPassword = SELECTORS.LOGIN.inputPassword();
+    const btnLogin = SELECTORS.LOGIN.btnLogin();
+
+    const password = 'Daniel10';
+
+    let passwordError: HTMLDivElement;
+
+    eventInput(inputPassword, password);
+    btnLogin.click();
+
+    fixture.detectChanges();
+    passwordError = SELECTORS.LOGIN.inputPasswordError();
+
+
+    expect(passwordError.textContent).toContain('La cantidad de caracteres debe ser minimo 9');
+  }));
+
+  xit('Se redirige al entrar en la funcion', fakeAsync(() => {
+    component.redirigir();
+    tick(1000);
+    expect(redirectPage).toHaveBeenCalled();
+    expect(routeSpy.navigate).toHaveBeenCalledWith(['/producto/listar']);
+  }));
 });

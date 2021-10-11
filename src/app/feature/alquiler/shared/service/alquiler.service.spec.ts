@@ -1,16 +1,19 @@
 /* tslint:disable:no-unused-variable */
 
+import { HttpResponse } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { Prestamo } from '@core/modelo/prestamo';
 import { Libro } from '@core/modelo/producto';
 import { HttpService } from '@core/services/http.service';
 import { environment } from 'src/environments/environment';
 import { AlquilerService } from './alquiler.service';
 
-describe('Service: Alquiler', () => {
+describe('AlquilerService', () => {
   let httpMock: HttpTestingController;
   let service: AlquilerService;
   const apiLibros = `${environment.API}/libro/1`;
+  const apiPrestamo = `${environment.API}/prestamo`;
   const dummyLibro = new Libro(
     'Arsène Lupin - Caballero y Ladrón',
     'Blanco&Negro',
@@ -24,6 +27,30 @@ describe('Service: Alquiler', () => {
     245456,
     1,
   );
+
+  const dummyPrestamo =
+    {
+      id: 41,
+      cedula: 1025009710,
+      fechaAlquiler: '2021-10-04',
+      fechaDevolucion: '2021-10-05',
+      valorTotal: 500,
+      codigoLibro: 1,
+      estado: 'pagado',
+      multa: 200
+    };
+
+  const dummyPrestamoDos =
+    {
+      id: 99,
+      cedula: 1025009710,
+      fechaAlquiler: '2021-10-04',
+      fechaDevolucion: '2021-10-05',
+      valorTotal: 500,
+      codigoLibro: 7,
+      estado: 'pagado',
+      multa: 200
+    };
 
   beforeEach(() => {
     const injector = TestBed.configureTestingModule({
@@ -39,12 +66,30 @@ describe('Service: Alquiler', () => {
     expect(productService).toBeTruthy();
   });
 
-  it('deberia traer el libro con id 1', () => {
+  it('Deberia actualizar el libro con ID 1 al nuevo valor', () => {
     service.actualizar(dummyLibro).then(productos => {
       expect(productos).toEqual(dummyLibro);
     });
     const req = httpMock.expectOne(apiLibros);
     expect(req.request.method).toBe('PUT');
-    req.flush(dummyLibro);
+    req.event(new HttpResponse<Libro>({body: dummyLibro}));
+  });
+
+  it('Deberia actualizar el prestamo a pagado', () => {
+    service.actualizarPrestamo(dummyPrestamo).then(prestamo => {
+      expect(prestamo).toEqual(dummyPrestamo);
+    });
+    const req = httpMock.expectOne(apiPrestamo + '/41');
+    expect(req.request.method).toBe('PUT');
+    req.event(new HttpResponse<Prestamo>({body: dummyPrestamo}));
+  });
+
+  it('Deberia crear un prestamo', () => {
+    service.crear(dummyPrestamoDos).then(prestamo => {
+      expect(prestamo).toEqual(dummyPrestamoDos);
+    });
+    const req = httpMock.expectOne(apiPrestamo);
+    expect(req.request.method).toBe('POST');
+    req.event(new HttpResponse<Prestamo>({body: dummyPrestamoDos}));
   });
 });

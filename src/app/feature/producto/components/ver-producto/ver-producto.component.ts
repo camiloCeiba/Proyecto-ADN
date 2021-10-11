@@ -12,7 +12,7 @@ import { GeneralService } from '@shared/services/general.service';
 export class VerProductoComponent implements OnInit {
 
   public producto: Libro;
-  public totalPrestamos: Prestamo[];
+  public totalPrestamos: Prestamo[] = [];
   public id: number;
   public persona: Person;
 
@@ -38,17 +38,22 @@ export class VerProductoComponent implements OnInit {
     this.autorizarAlquilar();
   }
 
-  routerAlquiler(item: Libro) {
+  alquiler(item: Libro) {
     if (this.totalPrestamos.length === 2) {
       alert('No puedes reservar debido a que tienes 2 libros ya alquilados');
-      return;
+      return false;
     }
     if (item.estado === 'Disponible') {
-      this.router.navigateByUrl('alquiler/alquiler-libro/' + item.id);
+      this.routerVerProducto(item.id);
     } else {
       alert('El libro no se encuentra disponible para el alquiler');
     }
   }
+
+  public routerVerProducto(id: number): void {
+    this.router.navigateByUrl('alquiler/alquiler-libro/' + id);
+  }
+
 
   async autorizarAlquilar() {
     const getTotalPrestamos: Prestamo[] = await this.generalService.consultarPrestamos();

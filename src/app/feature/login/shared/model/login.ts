@@ -23,3 +23,12 @@ export class Body {
         this.password = password;
     }
 }
+
+export class TypeLogin {
+    name: string;
+    idName: string;
+    constructor(name: string, idName: string) {
+        this.name = name;
+        this.idName = idName;
+    }
+}

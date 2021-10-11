@@ -1,29 +1,29 @@
 <div class="container">
   <div class="row">
-    <div *ngFor="let item of listaProductos | async">
+    <div *ngFor="let item of listaProductos | async; let i=index">
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <div class="col-lg-4 cursor" (click)="routerVerProducto(item.id)">
+            <div class="col-lg-4 cursor" id="{{'div-'+i+'-ver'}}" (click)="routerVerProducto(item.id)">
               <div class="row text-center">
                 <div class="col-lg-12">
-                  <strong>{{item.nombreLibro}}</strong>
+                  <strong id="{{'strong-'+i+'-nombreLibro'}}">{{item.nombreLibro}}</strong>
                 </div>
                 <div class="col-lg-12">
-                  <img [src]="item.URL" class="img" alt="item.nombreLibro">
+                  <img id="{{'img-'+i+'-URL'}}" [src]="item.URL" class="img" alt="item.nombreLibro">
                 </div>
               </div>
             </div>
             <div class="col-lg-8 ">
               <div class="row">
                 <div class="col-lg-12">
-                  <strong>Resumen: </strong>
+                  <strong>Resumen:</strong>
                 </div>
                 <div class="col-lg-12">
-                  <span>{{item.resumen}}</span>
+                  <span id="{{'span-'+i+'-resumen'}}">{{item.resumen}}</span>
                 </div>
-                <span><strong>Estado:</strong> {{item.estado}}</span>
-                <button type="button" class="btn btn-info" (click)="routerAlquiler(item)">Alquilar</button>
+                <strong>Estado:</strong><span id="{{'strong-'+i+'-estado'}}">{{item.estado}}</span>
+                <button id="{{'button-'+i+'-Alquilar'}}" type="button" class="btn btn-info" (click)="alquiler(item)">Alquilar</button>
               </div>
             </div>
           </div>

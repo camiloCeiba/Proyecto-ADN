@@ -1,4 +1,4 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { of } from 'rxjs';
 
 import { ListarProductoComponent } from './listar-producto.component';
@@ -7,47 +7,38 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ProductoService } from '../../shared/service/producto.service';
 import { HttpService } from 'src/app/core/services/http.service';
-import { Libro } from '@core/modelo/producto';
 import { GeneralService } from '@shared/services/general.service';
+import { GeneralMockService } from '@shared/data/generalMockService';
+import { ProductoMockService } from '@shared/data/productoMockService';
+import { SELECTORS } from '@shared/util/selectors';
+import { Router } from '@angular/router';
+import { VerProductoComponent } from '../ver-producto/ver-producto.component';
 
 describe('ListarProductoComponent', () => {
   let component: ListarProductoComponent;
   let fixture: ComponentFixture<ListarProductoComponent>;
   let productoService: ProductoService;
-  const listaProductos: Libro[] = [new Libro(
-                                              'Arsène Lupin - Caballero y Ladrón',
-                                              'Blanco&Negro',
-                                              // tslint:disable-next-line: max-line-length
-                                              'https://images.cdn2.buscalibre.com/fit-in/360x360/96/b9/96b9d711019a6807e4a89495b7089b97.jpg',
-                                              'Arsène Lupin es un caballero ladrón ficticio y maestro del disfraz creado en 1905 por el escritor francés Maurice Leblanc. Originalmente se llamaba Arsène Lopin, hasta que un político local del mismo nombreLibro_libro protestó. El personaje apareció por primera vez en una serie de historias cortas serializadas en la revista Je sais tout.',
-                                              'Acción',
-                                                1905,
-                                                'Disponible',
-                                                500,
-                                                245456,
-                                                1
-                                              ), new Libro(
-                                                'Arsène Lupin - La Aguja Hueca',
-                                                'Blanco&Negro',
-                                                'https://http2.mlstatic.com/D_NQ_NP_2X_744231-MCO46623946556_072021-F.webp',
-                                                'En ésta entrega de la serie del famoso ladrón de guante blanco, empieza con una escena nocturna muy inquietante y ubicación desde el primer momento al lector en un estado de gran tensión, lo que supone una distracción para que el lector pueda aplicar su ingenio a descubrir el verdadero misterio que se plantea, el enigma que llegará a César ocupar la Galia y posteriormente a los normandos iniciarán en Francia su despliegue por Europa. Se trata de una gran mole calcárea frente a la costa que oculta un secreto y, según cuenta la leyenda, un inmenso tesoro.',
-                                                'Acción',
-                                                1909,
-                                                'Disponible',
-                                                700,
-                                                255742,
-                                                2
-                                                )];
-
+  let generalService: GeneralService;
+  let redirectPage;
+  let redirectPageAlqular;
+  let routeSpy;
   beforeEach(waitForAsync(() => {
+    routeSpy = {navigate: jasmine.createSpy('navigateByUrl')};
     TestBed.configureTestingModule({
-      declarations: [ListarProductoComponent],
+      declarations: [ListarProductoComponent, VerProductoComponent],
       imports: [
         CommonModule,
         HttpClientModule,
-        RouterTestingModule
+        [RouterTestingModule.withRoutes([
+          {  path: 'detalles/:id', component: VerProductoComponent }
+      ])],
       ],
-      providers: [ProductoService, HttpService, GeneralService]
+      providers: [
+        { provide: GeneralService, useclass: GeneralMockService },
+        { provide: ProductoService, useclass: ProductoMockService },
+        { provide: Router, useValue: routeSpy },
+        HttpService
+      ]
     })
       .compileComponents();
   }));
@@ -56,17 +47,117 @@ describe('ListarProductoComponent', () => {
     fixture = TestBed.createComponent(ListarProductoComponent);
     component = fixture.componentInstance;
     productoService = TestBed.inject(ProductoService);
+    generalService = TestBed.inject(GeneralService);
     spyOn(productoService, 'consultar').and.returnValue(
-      of(listaProductos)
+      of(new ProductoMockService().consultar())
     );
+    spyOn(generalService, 'getToken').and.returnValue(
+      new GeneralMockService().getToken()
+    );
+    component.ngOnInit();
+    redirectPage = spyOn(component, 'routerVerProducto');
+    redirectPageAlqular = spyOn(component, 'routerAlquiler');
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Se creo ListarProductoComponent', () => {
     expect(component).toBeTruthy();
-    component.listaProductos.subscribe(resultado => {
-      expect(2).toBe(resultado.length);
   });
-});
+
+  it('La funcion se ejecuta correctamente', () => {
+    component.listarLibros();
+    const producto = new ProductoMockService().consultar();
+    fixture.detectChanges();
+    component.listaProductos.subscribe(resultado => {
+      expect(resultado).toEqual(producto);
+    });
+  });
+
+  it('La lista se llena con la informacion', fakeAsync(() => {
+    const i = 0;
+    component.listarLibros();
+    tick(1000);
+    fixture.detectChanges();
+    const strongNombreLibro = SELECTORS.LISTPRODUCTO.strongNombreLibro(i);
+    const imageURL = SELECTORS.LISTPRODUCTO.imageURL(i);
+    const spanResumen = SELECTORS.LISTPRODUCTO.spanResumen(i);
+    const strongEstado = SELECTORS.LISTPRODUCTO.strongEstado(i);
+    const producto = new ProductoMockService().consultar();
+    expect(strongNombreLibro.textContent).toEqual(producto[0].nombreLibro);
+    expect(imageURL.src).toEqual(producto[0].URL);
+    expect(spanResumen.textContent).toEqual(producto[0].resumen);
+    expect(strongEstado.textContent).toEqual(producto[0].estado);
+  }));
+
+  it('Redirigir al componente ver-producto de id 1', fakeAsync(() => {
+    const i = 0;
+    component.listarLibros();
+    tick(1000);
+    fixture.detectChanges();
+    const buttonVer = SELECTORS.LISTPRODUCTO.buttonVer(i);
+    buttonVer.click();
+    expect(redirectPage).toHaveBeenCalled();
+  }));
+
+  it('No permite alquilar si ya tiene dos libros alquilados', fakeAsync(() => {
+    const i = 1;
+    const prestamo = new GeneralMockService().consultarPrestamos();
+    component.totalPrestamos.push(prestamo[0]);
+    component.totalPrestamos.push(prestamo[0]);
+    tick(1000);
+    fixture.detectChanges();
+    const buttonAlquilar = SELECTORS.LISTPRODUCTO.buttonAlquilar(i);
+    buttonAlquilar.click();
+
+    expect(redirectPageAlqular).not.toHaveBeenCalled();
+  }));
+
+  it('No permite alquilar si el libro esta ocupado', fakeAsync(() => {
+    const i = 1;
+    const prestamo = new GeneralMockService().consultarPrestamos();
+    component.totalPrestamos.push(prestamo[0]);
+    component.listarLibros();
+    tick(1000);
+    fixture.detectChanges();
+    const buttonAlquilar = SELECTORS.LISTPRODUCTO.buttonAlquilar(i);
+    buttonAlquilar.click();
+
+    expect(redirectPageAlqular).not.toHaveBeenCalled();
+  }));
+
+  it('Si cumple se debe enviar a alquilar el libro', fakeAsync(() => {
+    const i = 0;
+    const prestamo = new GeneralMockService().consultarPrestamos();
+    component.totalPrestamos.push(prestamo[0]);
+    component.listarLibros();
+    tick(1000);
+    fixture.detectChanges();
+    const buttonAlquilar = SELECTORS.LISTPRODUCTO.buttonAlquilar(i);
+    buttonAlquilar.click();
+
+    expect(redirectPageAlqular).toHaveBeenCalled();
+  }));
+
+  it('El total de libros prestados debe ser igual a dos', fakeAsync(() => {
+    const prestamo = new GeneralMockService().consultarPrestamos();
+    const persona = new GeneralMockService().getToken();
+    spyOn(generalService, 'consultarPrestamos').and.returnValue(
+      Promise.resolve(prestamo)
+    );
+    component.persona = persona;
+    tick(1000);
+    component.autorizarAlquilar();
+    tick(1000);
+    fixture.detectChanges();
+    expect(component.totalPrestamos.length).toEqual(2);
+  }));
+
+  xit('Se redirige al entrar en la funcion', () => {
+    const valor = 1;
+    component.routerVerProducto(valor);
+    fixture.detectChanges();
+    expect(redirectPageAlqular).toHaveBeenCalled();
+    expect(routeSpy.navigate).toHaveBeenCalledWith([`/producto/detalles/${valor}`]);
+  });
 
 });

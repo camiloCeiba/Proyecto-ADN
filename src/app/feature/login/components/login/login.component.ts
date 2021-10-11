@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { GeneralService } from '@shared/services/general.service';
-import { LoginSesion, Body } from '../../shared/model/login';
+import { LoginSesion, TypeLogin } from '../../shared/model/login';
 import { LoginService } from '../../shared/services/login/login.service';
 
 @Component({
@@ -14,48 +13,45 @@ export class LoginComponent implements OnInit {
   public formLogin: FormGroup;
   public msjErrorUser: string;
   public msjErrorPass: string;
-  public datosPersona: LoginSesion;
+  public msjErrortype: string;
+  public datosPersona: LoginSesion[];
+  public listType: TypeLogin[];
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private loginService: LoginService,
-    private generalService: GeneralService
   ) {
+    this.listType = [{ name: 'Administrador', idName: 'login_admin' }, { name: 'Usuario', idName: 'login_user' }];
     this.formLogin = this.formBuilder.group({
       loginUser: [null, Validators.compose([Validators.required])],
-      loginPassword: [null, Validators.compose([Validators.required, Validators.minLength(9)])]
+      loginPassword: [null, Validators.compose([Validators.required, Validators.minLength(9)])],
+      type: [null, Validators.compose([Validators.required])],
     });
   }
 
   ngOnInit(): void {
     this.msjErrorUser = '';
     this.msjErrorPass = '';
+    this.msjErrortype = '';
   }
 
   async login(validacion) {
-    let body: Body;
     if (validacion) {
-      body = {
-        username: this.formLogin.get('loginUser').value,
-        password: this.formLogin.get('loginPassword').value
-      };
-
-      this.datosPersona = await this.loginService.login();
-      this.redirigir();
-      this.generalService.setToken(this.datosPersona[0].token);
-      if (body.username === this.datosPersona[0].user && body.password === this.datosPersona[0].clave) {
-        this.generalService.setToken(this.datosPersona[0].token);
+      this.datosPersona = await this.loginService.login(this.formLogin.get('type').value);
+      if (this.formLogin.get('loginUser').value === this.datosPersona[0].user &&
+        this.formLogin.get('loginPassword').value === this.datosPersona[0].clave) {
+        localStorage.setItem('token', this.datosPersona[0].token);
+        this.redirigir();
       } else {
         alert('Usuario o contraseña incorrecta');
       }
     } else {
       this.formLogin.markAllAsTouched();
-      return false;
     }
   }
 
   public redirigir(): void {
-    this.router.navigateByUrl('/producto/listar');
+    this.router.navigate(['/producto/listar']);
   }
 
   get loginUserValidate() {
@@ -83,5 +79,15 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  get loginTypeValidate() {
+    if (this.formLogin.get('type').hasError('required')) {
+      this.msjErrortype = 'El tipo es requerido';
+    }
 
+    return (
+      this.formLogin.get('type').invalid &&
+      (this.formLogin.get('type').touched ||
+        this.formLogin.get('type').dirty)
+    );
+  }
 }

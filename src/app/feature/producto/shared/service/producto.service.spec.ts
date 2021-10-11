@@ -19,12 +19,12 @@ describe('ProductoService', () => {
     service = TestBed.inject(ProductoService);
   });
 
-  it('should be created', () => {
+  xit('should be created', () => {
     const productService: ProductoService = TestBed.inject(ProductoService);
     expect(productService).toBeTruthy();
   });
 
-  it('deberia listar libros', () => {
+  xit('deberia listar libros', () => {
     const dummyLibros = [new Libro(
                                               'Arsène Lupin - Caballero y Ladrón',
                                               'Blanco&Negro',
@@ -59,45 +59,4 @@ describe('ProductoService', () => {
     req.flush(dummyLibros);
   });
 
-  // it('deberia crear un producto', () => {
-  //   const dummyProducto = new Libro(
-  //   'Arsène Lupin - Caballero y Ladrón',
-  //   'Blanco&Negro',
-  //   'https://images.cdn2.buscalibre.com/fit-in/360x360/96/b9/96b9d711019a6807e4a89495b7089b97.jpg',
-  // tslint:disable-next-line: max-line-length
-  //   'Arsène Lupin es un caballero ladrón ficticio y maestro del disfraz creado en 1905 por el escritor francés Maurice Leblanc. Originalmente se llamaba Arsène Lopin, hasta que un político local del mismo nombreLibro_libro protestó. El personaje apareció por primera vez en una serie de historias cortas serializadas en la revista Je sais tout.',
-  //   'Acción',
-  //     1905,
-  //     'Disponible',
-  //     500,
-  //     245456
-  //   );
-  //   service.crear(dummyProducto).subscribe((respuesta) => {
-  //     expect(respuesta).toEqual(true);
-  //   });
-  //   const req = httpMock.expectOne(apiEndpointProductos);
-  //   expect(req.request.method).toBe('POST');
-  //   req.event(new HttpResponse<boolean>({body: true}));
-  // });
-
-  // it('deberia eliminar un producto', () => {
-  //   const dummyProducto =  new Libro(
-  //     'Arsène Lupin - Caballero y Ladrón',
-  //     'Blanco&Negro',
-  //     'https://images.cdn2.buscalibre.com/fit-in/360x360/96/b9/96b9d711019a6807e4a89495b7089b97.jpg',
-  // tslint:disable-next-line: max-line-length
-  //     'Arsène Lupin es un caballero ladrón ficticio y maestro del disfraz creado en 1905 por el escritor francés Maurice Leblanc. Originalmente se llamaba Arsène Lopin, hasta que un político local del mismo nombreLibro_libro protestó. El personaje apareció por primera vez en una serie de historias cortas serializadas en la revista Je sais tout.',
-  //     'Acción',
-  //       1905,
-  //       'Disponible',
-  //       500,
-  //       245456
-  //     );
-  //   service.eliminar(dummyProducto).subscribe((respuesta) => {
-  //     expect(respuesta).toEqual(true);
-  //   });
-  //   const req = httpMock.expectOne(`${apiEndpointProductos}/1`);
-  //   expect(req.request.method).toBe('DELETE');
-  //   req.event(new HttpResponse<boolean>({body: true}));
-  // });
 });

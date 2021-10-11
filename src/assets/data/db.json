@@ -8,7 +8,7 @@
       "resumen": "Arsène Lupin es un caballero ladrón ficticio y maestro del disfraz creado en 1905 por el escritor francés Maurice Leblanc. Originalmente se llamaba Arsène Lopin, hasta que un político local del mismo nombreLibro_libro protestó. El personaje apareció por primera vez en una serie de historias cortas serializadas en la revista Je sais tout.",
       "categoria": "Acción",
       "fechaPublicacion": 1905,
-      "estado": "Disponible",
+      "estado": "Ocupado",
       "valorDia": 500,
       "codigoLibro": 245456
     },
@@ -20,7 +20,7 @@
       "resumen": "En ésta entrega de la serie del famoso ladrón de guante blanco, empieza con una escena nocturna muy inquietante y ubicación desde el primer momento al lector en un estado de gran tensión, lo que supone una distracción para que el lector pueda aplicar su ingenio a descubrir el verdadero misterio que se plantea, el enigma que llegará a César ocupar la Galia y posteriormente a los normandos iniciarán en Francia su despliegue por Europa. Se trata de una gran mole calcárea frente a la costa que oculta un secreto y, según cuenta la leyenda, un inmenso tesoro.",
       "categoria": "Acción",
       "fechaPublicacion": 1909,
-      "estado": "Ocupado",
+      "estado": "Disponible",
       "valorDia": 700,
       "codigoLibro": 255742
     },
@@ -92,69 +92,24 @@
       "resumen": "El profesor de simbología Robert Langdon se despierta en un hospital en mitad de la noche, desorientado y con una herida en la cabeza. No recuerda nada de las últimas treinta y seis horas. Ni cómo ha llegado hasta allí, ni el origen del macabro objeto que los médicos descubren entre sus pertenencias. El mundo de Langdon pronto se convierte en un caos y se ve obligado a huir por las calles de Florencia junto a una inteligente joven, Sienna Brooks, cuyas hábiles maniobras le salvan la vida. Langdon no tarda en darse cuenta de que se encuentra en posesión de una serie de inquietantes códigos creados por un brillante científico; un genio cuya obsesión con el fin del mundo sólo es equiparable a la pasión que siente por una de las obras maestras más influyentes jamás escritas: Inferno, el oscuro poema épico de Dante Alighieri.",
       "categoria": "Misterio",
       "fechaPublicacion": 2013,
-      "estado": "Ocupado",
+      "estado": "Disponible",
       "valorDia": 700,
       "codigoLibro": 365451
     },
     {
-      "id": 55,
-      "nombreLibro": "Libro test",
-      "editorial": "editorial Test",
-      "URL": "URL test",
-      "resumen": "resumen test",
-      "categoria": "categoria test",
-      "fechaPublicacion": 1905,
+      "id": 10,
+      "nombre_libro": "Prueba",
+      "editorial": "Editorial Planeta",
+      "URL": "https://images-na.ssl-images-amazon.com/images/I/51WmNPpn5sL.jpg",
+      "resumen": "Robert Langdon",
+      "categoria": "Misterio",
+      "fechaPublicacion": 2003,
       "estado": "Disponible",
-      "valorDia": 700,
-      "codigoLibro": 24587
-    },
-    {
-      "id": 30,
-      "nombreLibro": "PruebaLibro",
-      "editorial": "aasd",
-      "URL": "asdsdfg",
-      "resumen": "asd",
-      "categoria": "asdasd",
-      "fechaPublicacion": "2021-10-07",
-      "estado": "asdddas",
-      "valorDia": "522",
-      "codigoLibro": "12454"
-    },
-    {
-      "id": 25,
-      "nombreLibro": "Libro test",
-      "editorial": "editorial Test",
-      "URL": "URL test",
-      "resumen": "resumen test",
-      "categoria": "categoria test",
-      "fechaPublicacion": 1905,
-      "estado": "Disponible",
-      "valorDia": 700,
-      "codigoLibro": 24587
-    },
-    {
-      "id": 49,
-      "nombreLibro": "Libro test",
-      "editorial": "editorial Test",
-      "URL": "URL test",
-      "resumen": "resumen test",
-      "categoria": "categoria test",
-      "fechaPublicacion": 1905,
-      "estado": "Disponible",
-      "valorDia": 700,
-      "codigoLibro": 24587
+      "valorDia": 800,
+      "codigoLibro": 365853
     }
   ],
   "prestamo": [
-    {
-      "id": 1,
-      "cedula": 1023009710,
-      "fechaAlquiler": "2021/24/09",
-      "fechaDevolucion": "2021/30/09",
-      "valorTotal": 9100,
-      "codigoLibro": 8,
-      "estado": "pendiente"
-    },
     {
       "id": 94,
       "cedula": 1025009710,
@@ -172,36 +127,49 @@
       "fechaDevolucion": "2021-10-04",
       "valorTotal": 700,
       "codigoLibro": 2,
-      "estado": "pendiente",
+      "estado": "pagado",
+      "multa": 200
+    },
+    {
+      "id": 41,
+      "cedula": 1025009710,
+      "fechaAlquiler": "2021-10-04",
+      "fechaDevolucion": "2021-10-05",
+      "valorTotal": 500,
+      "codigoLibro": 1,
+      "estado": "pagado",
       "multa": 100
+    },
+    {
+      "id": 67,
+      "cedula": 1025009710,
+      "fechaAlquiler": "2021-10-05",
+      "fechaDevolucion": "2021-10-07",
+      "valorTotal": 1000,
+      "codigoLibro": 1,
+      "estado": "pendiente",
+      "multa": 0
     }
   ],
   "login_user": [
     {
-      "nombrePersona": "Camilo Andres Sanchez Rodriguez",
-      "cedula": 1023009710,
+      "nombrePersona": "Daniel Felipe Cardenas Sanchez",
+      "cedula": 1025009710,
       "rol": "user",
-      "user": "Camilo",
-      "clave": "camilo1023",
-      "token": "ew0KICAgICAgICAgICAgIm5vbWJyZV9wZXJzb25hIjogIkNhbWlsbyBBbmRyZXMgU2FuY2hleiBSb2RyaWd1ZXoiLA0KICAgICAgICAgICAgImNlZHVsYSI6IDEwMjMwMDk3MTAsDQogICAgICAgICAgICAicm9sIjogInVzZXIiLA0KICAgICAgICAgICAgInVzZXIiOiJDYW1pbG8iLA0KfQ=="
-    },
-    {
-      "nombrePersona": "Laura Fernanda Díaz Rodríguez",
-      "cedula": 1024009710,
-      "rol": "user",
-      "user": "Laura",
-      "clave": "Laura1024",
-      "token": "ew0KICAgICAgICAgICAgIm5vbWJyZV9wZXJzb25hIjogIkxhdXJhIEZlcm5hbmRhIETDrWF6IFJvZHLDrWd1ZXoiLA0KICAgICAgICAgICAgImNlZHVsYSI6IDEwMjQwMDk3MTAsDQogICAgICAgICAgICAicm9sIjogInVzZXIiLA0KICAgICAgICAgICAgInVzZXIiOiJMYXVyYSINCiB9"
+      "user": "Daniel",
+      "clave": "Daniel1025",
+      "token": "ICAgICAgICB7DQogICAgICAgICAgICAibm9tYnJlUGVyc29uYSI6ICJEYW5pZWwgRmVsaXBlIENhcmRlbmFzIFNhbmNoZXoiLA0KICAgICAgICAgICAgImNlZHVsYSI6IDEwMjUwMDk3MTAsDQogICAgICAgICAgICAicm9sIjogIkFkbWluIiwNCiAgICAgICAgICAgICJ1c2VyIjoiRGFuaWVsIg0KICAgICAgICB9"
     }
   ],
   "login_admin": [
+
     {
-      "nombrePersona": "Daniel Felipe Cardenas Sanchez",
-      "cedula": 1025009710,
+      "nombrePersona": "Laura Fernanda Díaz Rodríguez",
+      "cedula": 1024009710,
       "rol": "Admin",
-      "user": "Daniel",
-      "clave": "Daniel1025",
-      "token": "ICAgICAgICB7DQogICAgICAgICAgICAibm9tYnJlX3BlcnNvbmEiOiAiRGFuaWVsIEZlbGlwZSBDYXJkZW5hcyBTYW5jaGV6IiwNCiAgICAgICAgICAgICJjZWR1bGEiOiAxMDI1MDA5NzEwLA0KICAgICAgICAgICAgInJvbCI6ICJBZG1pbiIsDQogICAgICAgICAgICAidXNlciI6IkRhbmllbCINCiAgICAgICAgfQ=="
+      "user": "Laura",
+      "clave": "Laura1024",
+      "token": "ew0KICAgICAgICAgICAgIm5vbWJyZV9wZXJzb25hIjogIkxhdXJhIEZlcm5hbmRhIETDrWF6IFJvZHLDrWd1ZXoiLA0KICAgICAgICAgICAgImNlZHVsYSI6IDEwMjQwMDk3MTAsDQogICAgICAgICAgICAicm9sIjogInVzZXIiLA0KICAgICAgICAgICAgInVzZXIiOiJMYXVyYSINCiB9"
     }
   ]
 }

@@ -5,6 +5,7 @@ import { AlquilerLibroComponent } from './components/alquiler-libro/alquiler-lib
 import { AlquilerRoutingModule } from './alquiler-routing.module';
 import { SharedModule } from '@shared/shared.module';
 import { ListAlquilerComponent } from './components/list-alquiler/list-alquiler.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AlquilerLibroComponent,
@@ -13,6 +14,7 @@ import { ListAlquilerComponent } from './components/list-alquiler/list-alquiler.
   imports: [
     CommonModule,
     AlquilerRoutingModule,
+    ReactiveFormsModule,
     SharedModule
   ],
   providers: [AlquilerService]

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Prestamo } from '@core/modelo/prestamo';
 import { Libro, Person } from '@core/modelo/producto';
 import { GeneralService } from '@shared/services/general.service';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-list-prestamos',
@@ -47,9 +46,10 @@ export class ListPrestamosComponent implements OnInit {
   async autorizarAlquilar() {
     const getTotalPrestamos: Prestamo[] = await this.generalService.consultarPrestamos();
     this.totalPrestamos = getTotalPrestamos.filter((element: Prestamo) => {
-        const fechaFinal = moment(element.fechaDevolucion);
-        const fechaAcual = moment();
-        element.multa = fechaAcual.diff(fechaFinal, 'days') ? fechaAcual.diff(fechaFinal, 'days') * 100 : 0;
+        const fechaFinal = new Date(element.fechaDevolucion);
+        const fechaAcual = new Date().getTime();
+        element.multa = (fechaAcual - fechaFinal.getTime()) / (1000 * 60 * 60 * 24) ?
+        Math.trunc((fechaAcual - fechaFinal.getTime()) / (1000 * 60 * 60 * 24)) * 100  : 0;
         return element.cedula;
     });
 
