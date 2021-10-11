@@ -17,9 +17,9 @@ describe('VerProductoComponent', () => {
   let routeSpy;
   let redirectPage;
   beforeEach(waitForAsync(() => {
-    routeSpy = {navigate: jasmine.createSpy('navigateByUrl')};
+    routeSpy = { navigate: jasmine.createSpy('navigateByUrl') };
     TestBed.configureTestingModule({
-      declarations: [ VerProductoComponent ],
+      declarations: [VerProductoComponent],
       imports: [
         CommonModule,
         HttpClientModule,
@@ -40,16 +40,13 @@ describe('VerProductoComponent', () => {
         HttpService
       ],
     })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
+      .compileComponents();
     fixture = TestBed.createComponent(VerProductoComponent);
     component = fixture.componentInstance;
     generalService = TestBed.inject(GeneralService);
     redirectPage = spyOn(component, 'routerVerProducto');
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -57,7 +54,7 @@ describe('VerProductoComponent', () => {
 
   it('Se trae la informacion del primer libro con id 1', fakeAsync(() => {
     component.id = 1;
-    const libro  = new GeneralMockService().consultarId();
+    const libro = new GeneralMockService().consultarId();
     spyOn(generalService, 'consultarId').and.returnValue(
       Promise.resolve(libro)
     );

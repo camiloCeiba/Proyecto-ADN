@@ -49,9 +49,6 @@ describe('AlquilerLibroComponent', () => {
         HttpService],
     })
       .compileComponents();
-  }));
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(AlquilerLibroComponent);
     component = fixture.componentInstance;
     component.persona = new GeneralMockService().getToken();
@@ -61,7 +58,7 @@ describe('AlquilerLibroComponent', () => {
     alquilerService = TestBed.inject(AlquilerService);
     generalService = TestBed.inject(GeneralService);
     fixture.detectChanges();
-  });
+  }));
 
   it('should create AlquilerLibroComponent', () => {
     expect(component).toBeTruthy();

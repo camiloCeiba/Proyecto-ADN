@@ -23,15 +23,15 @@ describe('ListarProductoComponent', () => {
   let redirectPageAlqular;
   let routeSpy;
   beforeEach(waitForAsync(() => {
-    routeSpy = {navigate: jasmine.createSpy('navigateByUrl')};
+    routeSpy = { navigate: jasmine.createSpy('navigateByUrl') };
     TestBed.configureTestingModule({
       declarations: [ListarProductoComponent, VerProductoComponent],
       imports: [
         CommonModule,
         HttpClientModule,
         [RouterTestingModule.withRoutes([
-          {  path: 'detalles/:id', component: VerProductoComponent }
-      ])],
+          { path: 'detalles/:id', component: VerProductoComponent }
+        ])],
       ],
       providers: [
         { provide: GeneralService, useclass: GeneralMockService },
@@ -41,9 +41,6 @@ describe('ListarProductoComponent', () => {
       ]
     })
       .compileComponents();
-  }));
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(ListarProductoComponent);
     component = fixture.componentInstance;
     productoService = TestBed.inject(ProductoService);
@@ -58,7 +55,7 @@ describe('ListarProductoComponent', () => {
     redirectPage = spyOn(component, 'routerVerProducto');
     redirectPageAlqular = spyOn(component, 'routerAlquiler');
     fixture.detectChanges();
-  });
+  }));
 
   it('Se creo ListarProductoComponent', () => {
     expect(component).toBeTruthy();
