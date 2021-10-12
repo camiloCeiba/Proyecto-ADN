@@ -15,7 +15,10 @@ export class LoginPage {
 
     }
     async ingresarType(type) {
-        await this.selectType.sendKeys(type);
+        await this.selectType
+        .all(by.tagName('option'))
+        .get(type)
+        .click();
     }
 
     async clickBotonLoguearse() {

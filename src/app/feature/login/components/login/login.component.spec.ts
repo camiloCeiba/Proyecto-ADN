@@ -53,7 +53,6 @@ describe('LoginComponent', () => {
     const inputUsername = SELECTORS.LOGIN.inputUsername();
     const inputPassword = SELECTORS.LOGIN.inputPassword();
     const btnLogin = SELECTORS.LOGIN.btnLogin();
-
     const username = null;
     const password = null;
 

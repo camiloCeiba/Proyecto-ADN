@@ -1,18 +1,6 @@
-import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
 
 describe('workspace-project App', () => {
-  let page: AppPage;
-
-  beforeEach(() => {
-    page = new AppPage();
-  });
-
-  xit('should display welcome message', () => {
-    page.navigateTo();
-    console.log(page.getTitleText());
-    expect(page.getTitleText()).toEqual('Alquiler de libros');
-  });
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser

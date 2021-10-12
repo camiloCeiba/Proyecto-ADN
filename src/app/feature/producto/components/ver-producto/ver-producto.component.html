@@ -3,7 +3,7 @@
     <div class="col-lg-4">
       <div class="row text-center">
         <div class="col-lg-12">
-          <strong>{{producto!==undefined?producto.nombreLibro:''}}</strong>
+          <strong id="tituloLibro">{{producto!==undefined?producto.nombreLibro:''}}</strong>
         </div>
         <div class="col-lg-12">
           <img [src]="producto!==undefined?producto.URL:''" class="img" alt="item.nombreLibro">

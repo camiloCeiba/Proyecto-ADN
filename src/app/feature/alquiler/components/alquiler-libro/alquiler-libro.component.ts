@@ -87,8 +87,6 @@ export class AlquilerLibroComponent implements OnInit {
     this.redirigir();
   }
 
-
-
   public redirigir(): void {
     this.router.navigateByUrl('/alquiler/lista-alquiler');
   }
@@ -98,12 +96,14 @@ export class AlquilerLibroComponent implements OnInit {
     let fechaFinal;
     this.alquilerForm.get('fechaAlquiler').valueChanges.subscribe((fechaI: Date) => {
       fechaInicial = new Date(fechaI);
-      const diaDomingo =  6;
+      const diaDomingo = 6;
+
       if (fechaInicial.getDay() === diaDomingo) {
-        alert('Los dias domingos no se pueden reservar libros');
+        alert('Los dias domingos no se pueden reservar libros:'+fechaInicial);
         this.alquilerForm.get('valorTotal').setValue(undefined);
         return false;
       } else {
+        alert(fechaI);
         this.calcularValor(fechaInicial, fechaFinal);
         return true;
       }

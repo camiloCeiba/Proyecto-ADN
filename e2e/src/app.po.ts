@@ -8,4 +8,12 @@ export class AppPage {
   getTitleText() {
     return element(by.css('app-toolbar h1')).getText() as Promise<string>;
   }
+
+  getParagraphText(elemento, type) {
+    return element(by.css(`${elemento} ${type}`)).getText() as Promise<string>;
+  }
+
+  getIdText(elemento) {
+    return element(by.id(`${elemento}`)).getText() as Promise<string>;
+  }
 }
