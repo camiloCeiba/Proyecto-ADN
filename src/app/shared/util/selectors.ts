@@ -29,7 +29,7 @@ export const SELECTORS = {
         inputFechaFinal: (): HTMLInputElement => document.querySelector('#fechaFinal'),
         inputCedula: (): HTMLInputElement => document.querySelector('#cedula'),
         inputValorTotal: (): HTMLInputElement => document.querySelector('#valorTotal'),
-        ButtonAlquiler: (): HTMLButtonElement => document.querySelector('#botonAlquiler'),
+        buttonAlquiler: (): HTMLButtonElement => document.querySelector('#botonAlquiler'),
     },
     LISTALQUILER: {
         imgURL: (index: number): HTMLImageElement => document.querySelector(`#data-${index}-URL`),

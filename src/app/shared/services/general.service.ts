@@ -14,6 +14,7 @@ export class GeneralService {
       return localStorage.setItem('token', token);
     } catch (error) {
       localStorage.clear();
+      return null;
     }
   }
 
