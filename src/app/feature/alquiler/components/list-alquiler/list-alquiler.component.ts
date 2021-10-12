@@ -75,11 +75,14 @@ export class ListAlquilerComponent implements OnInit {
         const minutos = 60;
         const segundos = 60;
         const horas = 24;
+        const multa = 100;
         element.multa = (fechaAcual - fechaFinal.getTime()) / (mes * minutos * segundos * horas) ?
-        Math.trunc((fechaAcual - fechaFinal.getTime()) / (mes * minutos * segundos * horas)) * 100  : 0;
+        Math.trunc((fechaAcual - fechaFinal.getTime()) / (mes * minutos * segundos * horas)) * multa  : 0;
+        return element;
+      }else{
+        return null;
       }
     });
-
     this.totalPrestamos.forEach(async (element) => {
         this.totalLibros.push(Object.assign(await this.listLibros(element.codigoLibro), element));
     });

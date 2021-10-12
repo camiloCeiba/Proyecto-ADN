@@ -25,7 +25,7 @@ export class AlquilerLibroComponent implements OnInit {
     private alquilerService: AlquilerService,
     private router: Router
   ) {
-    this.id = parseInt(this.route.snapshot.paramMap.get('id'), 0);
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.alquilerForm = new FormGroup({
       id: new FormControl(''),
       cedula: new FormControl('', [Validators.required]),

@@ -75,7 +75,7 @@ describe('AlquilerLibroComponent', () => {
     const inputFechaFinal = SELECTORS.ALQUILER.inputFechaFinal();
     const inputCedula = SELECTORS.ALQUILER.inputCedula();
     const inputValorTotal = SELECTORS.ALQUILER.inputValorTotal();
-    const Buttonlquiler = SELECTORS.ALQUILER.Buttonlquiler();
+    const Buttonlquiler = SELECTORS.ALQUILER.ButtonAlquiler();
 
     const codigoLibro = null;
     const fechaInicial = null;

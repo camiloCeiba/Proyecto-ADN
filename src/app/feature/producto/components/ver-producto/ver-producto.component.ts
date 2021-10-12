@@ -17,7 +17,7 @@ export class VerProductoComponent implements OnInit {
   public persona: Person;
 
   constructor(protected generalService: GeneralService, private route: ActivatedRoute, private router: Router) {
-    this.id = parseInt(this.route.snapshot.paramMap.get('id'), 0);
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.producto = {
       nombreLibro: '',
       id: null,

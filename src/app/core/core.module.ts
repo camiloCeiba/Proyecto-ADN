@@ -4,12 +4,12 @@ import { SecurityGuard } from './guard/security/security.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptor/token-interceptor';
 import { AuthInterceptor } from './interceptor/auth-interceptor';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpService } from './services/http.service';
 import { ManejadorError } from './interceptor/manejador-error';
 import { RouterModule } from '@angular/router';
 import { LoginGuard } from '@core/guard/sesion/login.guard';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [ToolbarComponent, NavbarComponent],

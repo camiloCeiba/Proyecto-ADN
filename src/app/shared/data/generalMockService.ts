@@ -13,6 +13,20 @@ export class GeneralMockService{
             codigoLibro: 365451
         });
     }
+    consultarIdDos(){
+        return({
+                id: 1,
+                nombreLibro: 'Arsène Lupin - Caballero y Ladrón',
+                editorial: 'Blanco&Negro',
+                URL: 'https://images.cdn2.buscalibre.com/fit-in/360x360/96/b9/96b9d711019a6807e4a89495b7089b97.jpg',
+                resumen: 'Arsène Lupin es un caballero ladrón ficticio y maestro del disfraz creado en 1905 por el escritor francés Maurice Leblanc. Originalmente se llamaba Arsène Lopin, hasta que un político local del mismo nombreLibro_libro protestó. El personaje apareció por primera vez en una serie de historias cortas serializadas en la revista Je sais tout.',
+                categoria: 'Acción',
+                fechaPublicacion: 1905,
+                estado: 'Ocupado',
+                valorDia: 500,
+                codigoLibro: 245456
+        });
+    }
     consultarPrestamos(){
         return([
             {
@@ -68,6 +82,30 @@ export class GeneralMockService{
         ]);
     }
 
+    consultarPrestamosDos(){
+        return([
+            {
+                id: 41,
+                cedula: 1025009710,
+                fechaAlquiler: '2021-10-04',
+                fechaDevolucion: '2021-10-05',
+                valorTotal: 500,
+                codigoLibro: 1,
+                estado: 'pendiente',
+                multa: 100
+            },
+            {
+                id: 67,
+                cedula: 1025009710,
+                fechaAlquiler: '2021-10-05',
+                fechaDevolucion: '2021-10-07',
+                valorTotal: 1000,
+                codigoLibro: 1,
+                estado: 'pagado',
+                multa: 0
+            }
+        ]);
+    }
     getToken(){
         return({
                 nombrePersona: 'Daniel Felipe Cardenas Sanchez',

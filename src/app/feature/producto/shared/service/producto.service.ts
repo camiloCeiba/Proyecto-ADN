@@ -11,12 +11,4 @@ export class ProductoService {
   public consultar() {
     return this.http.doGet<Libro[]>(`${environment.API}/libro`, this.http.optsName('consultar libros'));
   }
-
-  public crear(libro: Libro): Promise<boolean> {
-    return new Promise((resolve) => {
-      this.http.doPost<Libro, boolean>(`${environment.API}/libro`, libro, this.http.optsName('crear libro')).subscribe(data => {
-        resolve(data);
-      });
-    });
-  }
 }
