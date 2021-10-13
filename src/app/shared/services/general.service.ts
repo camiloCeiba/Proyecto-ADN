@@ -23,6 +23,7 @@ export class GeneralService {
       return JSON.parse(atob(localStorage.getItem('token')));
     } catch (error) {
       localStorage.clear();
+      return null;
     }
   }
 
