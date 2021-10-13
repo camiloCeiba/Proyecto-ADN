@@ -11,7 +11,6 @@ export class ProductoMockService {
                 fechaPublicacion: 1905,
                 estado: 'Disponible',
                 valorDia: 500,
-                codigoLibro: 245456
             },
             {
                 id: 2,
@@ -23,7 +22,6 @@ export class ProductoMockService {
                 fechaPublicacion: 1909,
                 estado: 'Ocupado',
                 valorDia: 700,
-                codigoLibro: 255742
             }
         ]);
     }
