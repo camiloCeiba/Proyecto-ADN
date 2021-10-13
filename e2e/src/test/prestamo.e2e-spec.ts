@@ -14,7 +14,7 @@ describe('workspace-project Producto', () => {
         prestamo = new AdminPrestamoPage();
     });
 
-    it('Deberia listar los prestamos totales', async() => {
+    it('Deberia listar los prestamos totales', async () => {
         page.navigateTo();
         navBar.clickBotonAdminPrestamo();
         browser.sleep(1000);

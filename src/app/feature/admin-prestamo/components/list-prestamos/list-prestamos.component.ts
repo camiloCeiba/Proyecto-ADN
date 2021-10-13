@@ -25,8 +25,7 @@ export class ListPrestamosComponent implements OnInit {
                     URL: '',
                     estado: '',
                     fechaPublicacion: null,
-                    valorDia: null,
-                    codigoLibro: null
+                    valorDia: null
                   };
   }
 

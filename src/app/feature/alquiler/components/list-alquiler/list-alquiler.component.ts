@@ -17,19 +17,19 @@ export class ListAlquilerComponent implements OnInit {
   public totalLibros: Libro[] = [];
   public persona: Person;
   constructor(protected generalService: GeneralService,
-    private router: Router,
-    public alquilerService: AlquilerService) {
-    this.producto = {nombreLibro: '',
-                    id: null,
-                    editorial: '',
-                    resumen: '',
-                    categoria: '',
-                    URL: '',
-                    estado: '',
-                    fechaPublicacion: null,
-                    valorDia: null,
-                    codigoLibro: null
-                  };
+              private router: Router,
+              public alquilerService: AlquilerService) {
+              this.producto = {
+                nombreLibro: '',
+                id: null,
+                editorial: '',
+                resumen: '',
+                categoria: '',
+                URL: '',
+                estado: '',
+                fechaPublicacion: null,
+                valorDia: null
+              };
   }
 
   async ngOnInit() {
@@ -51,7 +51,7 @@ export class ListAlquilerComponent implements OnInit {
     this.actualizarPrestamo(bodyPrestamo);
   }
 
-  async actualizarPrestamo(body: Prestamo){
+  async actualizarPrestamo(body: Prestamo) {
     await this.alquilerService.actualizarPrestamo(body);
     const libro = await this.listLibros(body.codigoLibro);
     libro.estado = 'Disponible';
@@ -78,14 +78,14 @@ export class ListAlquilerComponent implements OnInit {
         const horas = 24;
         const multa = 100;
         element.multa = (fechaAcual - fechaFinal.getTime()) / (mes * minutos * segundos * horas) ?
-        Math.trunc((fechaAcual - fechaFinal.getTime()) / (mes * minutos * segundos * horas)) * multa  : 0;
+          Math.trunc((fechaAcual - fechaFinal.getTime()) / (mes * minutos * segundos * horas)) * multa : 0;
         return element;
-      }else{
+      } else {
         return null;
       }
     });
     this.totalPrestamos.forEach(async (element) => {
-        this.totalLibros.push(Object.assign(await this.listLibros(element.codigoLibro), element));
+      this.totalLibros.push(Object.assign(await this.listLibros(element.codigoLibro), element));
     });
   }
 }

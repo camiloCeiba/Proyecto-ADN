@@ -35,7 +35,6 @@ describe('ProductoService', () => {
                                                 1905,
                                                 'Disponible',
                                                 500,
-                                                245456,
                                                 1,
                                               ), new Libro(
                                                 'Arsène Lupin - La Aguja Hueca',
@@ -46,7 +45,6 @@ describe('ProductoService', () => {
                                                 1909,
                                                 'Disponible',
                                                 700,
-                                                255742,
                                                 2,
                                                 )];
 

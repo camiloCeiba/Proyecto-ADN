@@ -19,10 +19,10 @@ export class ListarProductoComponent implements OnInit {
   public persona: Person;
   public objNoti: NotificationLib;
   constructor(protected generalService: GeneralService,
-     protected productoService: ProductoService,
-     private router: Router) { 
-       this.objNoti = {titulo:'', descripcion: '', tipo: ''};
-     }
+              protected productoService: ProductoService,
+              private router: Router) {
+    this.objNoti = { titulo: '', descripcion: '', tipo: '' };
+  }
 
   ngOnInit() {
     this.listarLibros();
@@ -41,18 +41,16 @@ export class ListarProductoComponent implements OnInit {
   alquiler(item: Libro) {
     const valor = 2;
     if (this.totalPrestamos.length === valor) {
-      this.objNoti.titulo='Warning';
-      this.objNoti.descripcion='No puedes reservar debido a que tienes 2 libros ya alquilados';
-      this.objNoti.tipo='warning';
-      // setTimeout(()=>{this.objNoti = {titulo:'', descripcion: '', tipo: ''}},3000);
+      this.objNoti.titulo = 'Warning';
+      this.objNoti.descripcion = 'No puedes reservar debido a que tienes 2 libros ya alquilados';
+      this.objNoti.tipo = 'warning';
     } else {
       if (item.estado === 'Disponible') {
         this.routerAlquiler(item.id);
       } else {
-        this.objNoti.titulo='Warning';
-        this.objNoti.descripcion='El libro no se encuentra disponible para el alquiler';
-        this.objNoti.tipo='warning';
-        // setTimeout(()=>{this.objNoti = {titulo:'', descripcion: '', tipo: ''}},3000);
+        this.objNoti.titulo = 'Warning';
+        this.objNoti.descripcion = 'El libro no se encuentra disponible para el alquiler';
+        this.objNoti.tipo = 'warning';
       }
     }
   }

@@ -11,7 +11,6 @@ import { GeneralService } from '@shared/services/general.service';
   styleUrls: ['./ver-producto.component.sass']
 })
 export class VerProductoComponent implements OnInit {
-  
   @Output() newItemEvent = new EventEmitter<NotificationLib>();
   public producto: Libro;
   public totalPrestamos: Prestamo[] = [];
@@ -30,10 +29,9 @@ export class VerProductoComponent implements OnInit {
       URL: '',
       estado: '',
       fechaPublicacion: null,
-      valorDia: null,
-      codigoLibro: null
+      valorDia: null
     };
-    this.objNoti = {titulo:'', descripcion: '', tipo: ''};
+    this.objNoti = {titulo: '', descripcion: '', tipo: ''};
   }
 
   async ngOnInit() {
@@ -45,20 +43,18 @@ export class VerProductoComponent implements OnInit {
   alquiler(item: Libro) {
     const valor = 2;
     if (this.totalPrestamos.length === valor) {
-      this.objNoti.titulo='Warning';
-      this.objNoti.descripcion='No puedes reservar debido a que tienes 2 libros ya alquilados';
-      this.objNoti.tipo='warning';
-      // setTimeout(()=>{this.objNoti = {titulo:'', descripcion: '', tipo: ''}},500);
+      this.objNoti.titulo = 'Warning';
+      this.objNoti.descripcion = 'No puedes reservar debido a que tienes 2 libros ya alquilados';
+      this.objNoti.tipo = 'warning';
       return false;
     }else{
       if (item.estado === 'Disponible') {
         this.routerVerProducto(item.id);
         return true;
       } else {
-        this.objNoti.titulo='Warning';
-        this.objNoti.descripcion='El libro no se encuentra disponible para el alquiler';
-        this.objNoti.tipo='warning';
-        // setTimeout(()=>{this.objNoti = {titulo:'', descripcion: '', tipo: ''}},500);
+        this.objNoti.titulo = 'Warning';
+        this.objNoti.descripcion = 'El libro no se encuentra disponible para el alquiler';
+        this.objNoti.tipo = 'warning';
         return false;
       }
     }

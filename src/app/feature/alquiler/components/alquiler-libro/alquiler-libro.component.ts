@@ -38,7 +38,7 @@ export class AlquilerLibroComponent implements OnInit {
       codigoLibro: new FormControl({ value: '', disabled: false }),
       estado: new FormControl({ value: 'pendiente', disabled: false }),
     });
-    this.objNoti = {titulo:'', descripcion: '', tipo: ''};
+    this.objNoti = { titulo: '', descripcion: '', tipo: '' };
   }
 
   async ngOnInit() {
@@ -57,8 +57,7 @@ export class AlquilerLibroComponent implements OnInit {
       URL: '',
       estado: '',
       fechaPublicacion: null,
-      valorDia: null,
-      codigoLibro: null
+      valorDia: null
     };
     this.getLibro();
     this.cambiosFecha();
@@ -103,10 +102,9 @@ export class AlquilerLibroComponent implements OnInit {
       const diaDomingo = 6;
 
       if (fechaInicial.getDay() === diaDomingo) {
-        this.objNoti.titulo='Warning';
-        this.objNoti.descripcion=`Los dias domingos no se pueden reservar libros`;
-        this.objNoti.tipo='warning';
-        // setTimeout(()=>{this.objNoti = {titulo:'', descripcion: '', tipo: ''}},3000);
+        this.objNoti.titulo = 'Warning';
+        this.objNoti.descripcion = `Los dias domingos no se pueden reservar libros`;
+        this.objNoti.tipo = 'warning';
         this.alquilerForm.get('valorTotal').setValue(undefined);
         return false;
       } else {
@@ -132,10 +130,9 @@ export class AlquilerLibroComponent implements OnInit {
         this.alquilerForm.get('valorTotal').setValue(
           (fechaFinal.getTime() - fechaInicial.getTime()) / (mes * minutos * segundos * horas) * this.producto.valorDia);
       } else {
-        this.objNoti.titulo='Warning';
-        this.objNoti.descripcion='La fecha final no puede ser menor a la fecha inicial';
-        this.objNoti.tipo='warning';
-        // setTimeout(()=>{this.objNoti = {titulo:'', descripcion: '', tipo: ''}},3000);
+        this.objNoti.titulo = 'Warning';
+        this.objNoti.descripcion = 'La fecha final no puede ser menor a la fecha inicial';
+        this.objNoti.tipo = 'warning';
       }
     }
   }

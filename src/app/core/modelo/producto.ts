@@ -21,7 +21,6 @@ export class Libro {
     fechaPublicacion: number;
     estado: string;
     valorDia: number;
-    codigoLibro: number;
     id: number;
     constructor(
         nombreLibro: string,
@@ -32,7 +31,6 @@ export class Libro {
         fechaPublicacion: number,
         estado: string,
         valorDia: number,
-        codigoLibro: number,
         id: number) {
         this.nombreLibro = nombreLibro;
         this.editorial = editorial;
@@ -42,7 +40,6 @@ export class Libro {
         this.fechaPublicacion = fechaPublicacion;
         this.estado = estado;
         this.valorDia = valorDia;
-        this.codigoLibro = codigoLibro;
         this.id = id;
     }
 }

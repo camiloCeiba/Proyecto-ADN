@@ -1,23 +1,23 @@
 import { by, element } from 'protractor';
 
 export class ProductoPage {
-    private linkCrearProducto = element(by.id('linkCrearProducto'));
-    private linkListarProductos = element(by.id('linkListarProducto'));
-    private inputNombreLibro = element(by.id('nombreLibro'));
-    private inputEditorial = element(by.id('editorial'));
-    private inputURL = element(by.id('URL'));
-    private inputEstado = element(by.id('estado'));
-    private inputValorDia = element(by.id('valorDia'));
-    private inputResumen = element(by.id('resumen'));
-    private inputCategoria = element(by.id('categoria'));
-    private inputFechaPublicacion= element(by.id('fechaPublicacion'));
-    private inputCodigoLibro= element(by.id('codigoLibro'));
-    private buttonCrearLibro= element(by.id('button-crear-libro'));
-    private listaProductos = element.all(by.css('app-listar-producto .card'));
-    private buttonVerLibro= element(by.id('div-1-ver'));
-    private buttonAlquilarLibro= element(by.id('button-1-Alquilar'));
-    private buttonVerAlquilarLibro= element(by.id('buttonAlquilar'));
-    
+    private linkCrearProducto = element( by.id('linkCrearProducto'));
+    private linkListarProductos = element( by.id('linkListarProducto'));
+    private inputNombreLibro = element( by.id('nombreLibro'));
+    private inputEditorial = element( by.id('editorial'));
+    private inputURL = element( by.id('URL'));
+    private inputEstado = element( by.id('estado'));
+    private inputValorDia = element( by.id('valorDia'));
+    private inputResumen = element (by.id('resumen'));
+    private inputCategoria = element( by.id('categoria'));
+    private inputFechaPublicacion = element( by.id('fechaPublicacion'));
+    private inputCodigoLibro = element( by.id('codigoLibro'));
+    private buttonCrearLibro = element( by.id('button-crear-libro'));
+    private listaProductos = element.all( by.css('app-listar-producto .card'));
+    private buttonVerLibro = element( by.id('div-1-ver'));
+    private buttonAlquilarLibro = element( by.id('button-1-Alquilar'));
+    private buttonVerAlquilarLibro = element( by.id('buttonAlquilar'));
+
     async clickBotonCrearProductos() {
         await this.linkCrearProducto.click();
     }

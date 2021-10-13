@@ -64,7 +64,6 @@ describe('CrearProductoComponent', () => {
     component.libroForm.controls.fechaPublicacion.setValue(libroNew.fechaPublicacion);
     component.libroForm.controls.estado.setValue(libroNew.estado);
     component.libroForm.controls.valorDia.setValue(libroNew.valorDia);
-    component.libroForm.controls.codigoLibro.setValue(libroNew.codigoLibro);
     expect(component.libroForm.valid).toBeTruthy();
     component.crear(component.libroForm.valid);
     tick(1000);
@@ -77,7 +76,6 @@ describe('CrearProductoComponent', () => {
     expect(component.producto.fechaPublicacion).toEqual(component.libroForm.controls.fechaPublicacion.value);
     expect(component.producto.estado).toEqual(component.libroForm.controls.estado.value);
     expect(component.producto.valorDia).toEqual(component.libroForm.controls.valorDia.value);
-    expect(component.producto.codigoLibro).toEqual(component.libroForm.controls.codigoLibro.value);
     expect(redirectPage).toHaveBeenCalled();
     // Aca validamos el resultado esperado al enviar la petición
     // TODO adicionar expect

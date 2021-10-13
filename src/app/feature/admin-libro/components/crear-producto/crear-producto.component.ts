@@ -37,8 +37,7 @@ export class CrearProductoComponent implements OnInit {
       categoria: new FormControl('', [Validators.required]),
       fechaPublicacion: new FormControl('', [Validators.required]),
       estado: new FormControl('', [Validators.required]),
-      valorDia: new FormControl('', [Validators.required]),
-      codigoLibro: new FormControl('', [Validators.required]),
+      valorDia: new FormControl('', [Validators.required])
     });
   }
 

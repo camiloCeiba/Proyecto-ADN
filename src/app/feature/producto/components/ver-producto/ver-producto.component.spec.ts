@@ -86,7 +86,7 @@ describe('VerProductoComponent', () => {
     expect(inputSpanFecha.textContent).toEqual(libro.fechaPublicacion.toString());
     expect(inputSpanEstado.textContent).toEqual(libro.estado);
     expect(inputSpanValorDia.textContent).toEqual(libro.valorDia.toString());
-    expect(inputSpanCodigoLibro.textContent).toEqual(libro.codigoLibro.toString());
+    expect(inputSpanCodigoLibro.textContent).toEqual(libro.id.toString());
   }));
 
   it('No permite alquilar si ya tiene dos libros alquilados detalle', fakeAsync(() => {

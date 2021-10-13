@@ -14,14 +14,14 @@ describe('workspace-project Producto', () => {
         producto = new ProductoPage();
     });
 
-    it('Deberia listar libros', async() => {
+    it('Deberia listar libros', async () => {
         page.navigateTo();
         navBar.clickBotonListarLibros();
         browser.sleep(1000);
         expect(9).toBe(producto.contarProductos());
     });
 
-    it('Deberia crear un libro', async() => {
+    it('Deberia crear un libro', async () => {
         const nombreLibro = 'Prueba test';
         const editorial = 'Editarial ytest';
         const URL = 'URL test';
@@ -30,7 +30,6 @@ describe('workspace-project Producto', () => {
         const resumen = 'resumen test';
         const categoria = 'categoria test';
         const fechaPublicacion = '2020-05-07';
-        const codigoLibro = 9999;
         page.navigateTo();
         navBar.clickBotonCrearLibros();
         expect(page.getParagraphText('app-crear-producto', 'h3')).toEqual('Registrar Libro');
@@ -42,13 +41,12 @@ describe('workspace-project Producto', () => {
         producto.ingresarResumen(resumen);
         producto.ingresarCategoria(categoria);
         producto.ingresarFechaPublicacion(fechaPublicacion);
-        producto.ingresarCodigoLibro(codigoLibro);
         await producto.clickCrearLibro();
         browser.sleep(1000);
         expect(page.getParagraphText('app-listar-producto', 'h3')).toEqual('Listado de libros');
     });
-    
-    it('Deberia ver el detalle de un libro', async() => {
+
+    it('Deberia ver el detalle de un libro', async () => {
         page.navigateTo();
         navBar.clickBotonListarLibros();
         expect(page.getParagraphText('app-listar-producto', 'h3')).toEqual('Listado de libros');
@@ -56,5 +54,5 @@ describe('workspace-project Producto', () => {
         browser.sleep(1000);
         expect(page.getIdText('tituloLibro')).toEqual('Arsène Lupin - La Aguja Hueca');
     });
-    
+
 });

@@ -19,7 +19,7 @@ export class NotificationComponent {
       case 'danger':
         return '#f45858';
       default :
-        break;
+        return '';
     }
   }
 }

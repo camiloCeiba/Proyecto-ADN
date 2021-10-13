@@ -22,7 +22,6 @@ describe('Service: Services', () => {
     1905,
     'Disponible',
     500,
-    245456,
     1,
   );
 

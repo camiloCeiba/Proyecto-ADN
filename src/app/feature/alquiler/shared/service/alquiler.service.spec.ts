@@ -24,7 +24,6 @@ describe('AlquilerService', () => {
     1905,
     'Disponible',
     700,
-    245456,
     1,
   );
 

@@ -76,7 +76,6 @@ describe('ListAlquilerComponent', () => {
     const spanFechaPubli = SELECTORS.LISTALQUILER.spanFechaPubli(i);
     const spanEstado = SELECTORS.LISTALQUILER.spanEstado(i);
     const spanValor = SELECTORS.LISTALQUILER.spanValor(i);
-    const spanCodigo = SELECTORS.LISTALQUILER.spanCodigo(i);
     const spanFechaDevo = SELECTORS.LISTALQUILER.spanFechaDevo(i);
     const prestamo = new GeneralMockService().consultarPrestamosDos();
     const producto = new GeneralMockService().consultarIdDos();
@@ -86,7 +85,6 @@ describe('ListAlquilerComponent', () => {
     expect(spanEditorial.textContent).toEqual(producto.editorial);
     expect(spanValor.textContent).toEqual(producto.valorDia.toString());
     expect(spanEstado.textContent).toEqual(prestamo[0].estado);
-    expect(spanCodigo.textContent).toEqual(producto.id.toString());
     expect(spanFechaDevo.textContent).toEqual(prestamo[0].fechaDevolucion);
   }));
 });

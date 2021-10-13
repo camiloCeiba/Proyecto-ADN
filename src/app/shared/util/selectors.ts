@@ -38,7 +38,6 @@ export const SELECTORS = {
         spanFechaPubli: (index: number): HTMLSpanElement => document.querySelector(`#data-${index}-fechaPubli`),
         spanEstado: (index: number): HTMLSpanElement => document.querySelector(`#data-${index}-estado`),
         spanValor: (index: number): HTMLSpanElement => document.querySelector(`#data-${index}-valor`),
-        spanCodigo: (index: number): HTMLSpanElement => document.querySelector(`#data-${index}-codigo`),
         spanFechaDevo: (index: number): HTMLSpanElement => document.querySelector(`#data-${index}-fechaDevo`),
         spanAlquiler: (index: number): HTMLSpanElement => document.querySelector(`#data-${index}-alquiler`),
         spanMulta: (index: number): HTMLSpanElement => document.querySelector(`#data-${index}-multa`),
