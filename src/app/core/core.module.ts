@@ -10,14 +10,15 @@ import { RouterModule } from '@angular/router';
 import { LoginGuard } from '@core/guard/sesion/login.guard';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
-  declarations: [ToolbarComponent, NavbarComponent],
+  declarations: [ToolbarComponent, NavbarComponent, NotificationComponent],
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports: [ToolbarComponent, NavbarComponent],
+  exports: [ToolbarComponent, NavbarComponent, NotificationComponent],
   providers: [
     HttpService,
     SecurityGuard,

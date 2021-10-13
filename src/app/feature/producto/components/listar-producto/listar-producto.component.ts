@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductoService } from '@producto/shared/service/producto.service';
 import { Router } from '@angular/router';
 import { Libro, Person } from '@core/modelo/producto';
 import { GeneralService } from '@shared/services/general.service';
 import { Prestamo } from '@core/modelo/prestamo';
+import { NotificationLib } from '@core/modelo/notification';
 
 @Component({
   selector: 'app-listar-producto',
@@ -12,11 +13,16 @@ import { Prestamo } from '@core/modelo/prestamo';
   styleUrls: ['./listar-producto.component.sass']
 })
 export class ListarProductoComponent implements OnInit {
+  @Output() newItemEvent = new EventEmitter<NotificationLib>();
   public listaProductos: Observable<Libro[]>;
   public totalPrestamos: Prestamo[] = [];
   public persona: Person;
-
-  constructor(protected generalService: GeneralService, protected productoService: ProductoService, private router: Router) { }
+  public objNoti: NotificationLib;
+  constructor(protected generalService: GeneralService,
+     protected productoService: ProductoService,
+     private router: Router) { 
+       this.objNoti = {titulo:'', descripcion: '', tipo: ''};
+     }
 
   ngOnInit() {
     this.listarLibros();
@@ -35,12 +41,18 @@ export class ListarProductoComponent implements OnInit {
   alquiler(item: Libro) {
     const valor = 2;
     if (this.totalPrestamos.length === valor) {
-      alert('No puedes reservar debido a que tienes 2 libros ya alquilados');
+      this.objNoti.titulo='Warning';
+      this.objNoti.descripcion='No puedes reservar debido a que tienes 2 libros ya alquilados';
+      this.objNoti.tipo='warning';
+      // setTimeout(()=>{this.objNoti = {titulo:'', descripcion: '', tipo: ''}},3000);
     } else {
       if (item.estado === 'Disponible') {
         this.routerAlquiler(item.id);
       } else {
-        alert('El libro no se encuentra disponible para el alquiler');
+        this.objNoti.titulo='Warning';
+        this.objNoti.descripcion='El libro no se encuentra disponible para el alquiler';
+        this.objNoti.tipo='warning';
+        // setTimeout(()=>{this.objNoti = {titulo:'', descripcion: '', tipo: ''}},3000);
       }
     }
   }

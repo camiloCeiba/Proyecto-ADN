@@ -1,0 +1,8 @@
+<div class="card diseno" [ngStyle]="{'background-color':getColor(objNotificacion!==undefined?objNotificacion.tipo:'')}">
+  <div class="card-body">
+    <h6>{{objNotificacion?.titulo}}</h6>
+    <div>
+      {{objNotificacion?.descripcion}}
+    </div>
+  </div>
+</div>

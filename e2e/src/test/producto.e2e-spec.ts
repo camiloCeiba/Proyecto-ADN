@@ -21,7 +21,7 @@ describe('workspace-project Producto', () => {
         expect(9).toBe(producto.contarProductos());
     });
 
-    xit('Deberia crear un libro', async() => {
+    it('Deberia crear un libro', async() => {
         const nombreLibro = 'Prueba test';
         const editorial = 'Editarial ytest';
         const URL = 'URL test';

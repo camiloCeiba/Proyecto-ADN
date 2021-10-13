@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationLib } from '@core/modelo/notification';
 import { Prestamo } from '@core/modelo/prestamo';
 import { Libro, Person } from '@core/modelo/producto';
 import { GeneralService } from '@shared/services/general.service';
@@ -12,12 +13,14 @@ import { AlquilerService } from '../../shared/service/alquiler.service';
   styleUrls: ['./alquiler-libro.component.sass']
 })
 export class AlquilerLibroComponent implements OnInit {
+  @Output() newItemEvent = new EventEmitter<NotificationLib>();
   alquilerForm: FormGroup;
   public prestamo: Prestamo;
   public updateEstado: Libro;
   public producto: Libro;
   public id: number;
   public persona: Person;
+  public objNoti: NotificationLib;
 
   constructor(
     protected generalService: GeneralService,
@@ -35,6 +38,7 @@ export class AlquilerLibroComponent implements OnInit {
       codigoLibro: new FormControl({ value: '', disabled: false }),
       estado: new FormControl({ value: 'pendiente', disabled: false }),
     });
+    this.objNoti = {titulo:'', descripcion: '', tipo: ''};
   }
 
   async ngOnInit() {
@@ -99,11 +103,13 @@ export class AlquilerLibroComponent implements OnInit {
       const diaDomingo = 6;
 
       if (fechaInicial.getDay() === diaDomingo) {
-        alert('Los dias domingos no se pueden reservar libros:'+fechaInicial);
+        this.objNoti.titulo='Warning';
+        this.objNoti.descripcion=`Los dias domingos no se pueden reservar libros`;
+        this.objNoti.tipo='warning';
+        // setTimeout(()=>{this.objNoti = {titulo:'', descripcion: '', tipo: ''}},3000);
         this.alquilerForm.get('valorTotal').setValue(undefined);
         return false;
       } else {
-        alert(fechaI);
         this.calcularValor(fechaInicial, fechaFinal);
         return true;
       }
@@ -126,7 +132,10 @@ export class AlquilerLibroComponent implements OnInit {
         this.alquilerForm.get('valorTotal').setValue(
           (fechaFinal.getTime() - fechaInicial.getTime()) / (mes * minutos * segundos * horas) * this.producto.valorDia);
       } else {
-        alert('La fecha final no puede ser menor a la fecha inicial');
+        this.objNoti.titulo='Warning';
+        this.objNoti.descripcion='La fecha final no puede ser menor a la fecha inicial';
+        this.objNoti.tipo='warning';
+        // setTimeout(()=>{this.objNoti = {titulo:'', descripcion: '', tipo: ''}},3000);
       }
     }
   }

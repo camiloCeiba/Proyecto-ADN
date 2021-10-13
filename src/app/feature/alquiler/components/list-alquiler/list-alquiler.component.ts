@@ -4,7 +4,6 @@ import { Prestamo } from '@core/modelo/prestamo';
 import { Libro, Person } from '@core/modelo/producto';
 import { GeneralService } from '@shared/services/general.service';
 import { AlquilerService } from '../../shared/service/alquiler.service';
-
 @Component({
   selector: 'app-list-alquiler',
   templateUrl: './list-alquiler.component.html',
@@ -17,7 +16,9 @@ export class ListAlquilerComponent implements OnInit {
   public totalPrestamos: Prestamo[];
   public totalLibros: Libro[] = [];
   public persona: Person;
-  constructor(protected generalService: GeneralService, private router: Router, public alquilerService: AlquilerService) {
+  constructor(protected generalService: GeneralService,
+    private router: Router,
+    public alquilerService: AlquilerService) {
     this.producto = {nombreLibro: '',
                     id: null,
                     editorial: '',
